@@ -1,0 +1,13 @@
+<svg width="440" height="160" viewBox="0 0 440 160" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Koken Labs">
+  <defs>
+    <linearGradient id="klSignalL" x1="74" y1="50" x2="118" y2="112" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#A24BFF"/>
+      <stop offset="1" stop-color="#FF53B1"/>
+    </linearGradient>
+    <style>@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600&amp;family=JetBrains+Mono:wght@700&amp;display=swap');</style>
+  </defs>
+  <text x="65" y="112" text-anchor="end" font-family="'Space Grotesk', sans-serif" font-weight="600" font-size="86" fill="#0A0B0E" letter-spacing="-2">k</text>
+  <rect x="77.5" y="51" width="37" height="7" rx="3.5" fill="url(#klSignalL)"/>
+  <path d="M 103.5 67.3 A 22 22 0 1 1 88.5 67.3" stroke="url(#klSignalL)" stroke-width="9" stroke-linecap="round"/>
+  <text x="127" y="112" font-family="'Space Grotesk', sans-serif" font-weight="600" font-size="86" fill="#0A0B0E" letter-spacing="-2">ken<tspan dx="22" dy="-2" font-family="'JetBrains Mono', monospace" font-weight="700" font-size="30" fill="#9A3DEB" letter-spacing="2">LABS</tspan></text>
+</svg>
