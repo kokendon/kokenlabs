@@ -5,7 +5,9 @@ No build step. Auto-deploys to Vercel on push to `master`.
 
 ## Config (verified)
 - GitHub repo: `kokendon/kokenlabs`  (public)
-- Branch / production: `master`
+- Branch / production: **`main`** — Vercel's production branch is `main`. Pushes to
+  `master` only create PREVIEW deploys (target null) and never reach the live domain.
+  ALWAYS push to `main` to deploy production: `git push <url> HEAD:main`.
 - Vercel project: `kokenlabs`  (id `prj_OKmBlc0EexO2UrOb6ZNZgfEs9xJi`)
 - Vercel team: `kokendons-projects`  (id `team_87GnWfgdmmckj2kizcq8qS3I`)
 - Required commit-author email: `tarwaterdon@gmail.com`  (matches connected GitHub identity — deploys OK)
@@ -18,10 +20,10 @@ No build step. Auto-deploys to Vercel on push to `master`.
    (the `application/ld+json` "error" is a false positive — JSON-LD is valid JSON).
 2. Clear FUSE locks, then commit as the required author:
    `git -c user.email="tarwaterdon@gmail.com" -c user.name="Koken Labs" commit -m "…"`
-3. Push with the gitignored token:
+3. Push with the gitignored token TO MAIN (production branch):
    `set -a && source .env.local && set +a`
-   `git push "https://x-access-token:${GITHUB_TOKEN}@github.com/kokendon/kokenlabs.git" master`
-   (always redact the token in surfaced logs)
+   `git push "https://x-access-token:${GITHUB_TOKEN}@github.com/kokendon/kokenlabs.git" HEAD:main`
+   (always redact the token in surfaced logs; pushing to master does NOT go live)
 4. Verify deploy READY/production via Vercel MCP `list_deployments`
    (project + team IDs above), matching the pushed commit SHA.
 
