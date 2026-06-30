@@ -18,7 +18,7 @@
     canvas.width = W*dpr; canvas.height = H*dpr;
     canvas.style.width = W+'px'; canvas.style.height = H+'px';
     ctx.setTransform(dpr,0,0,dpr,0,0);
-    COUNT = Math.max(26, Math.min(58, Math.round(W*H/27000)));
+    COUNT = Math.max(32, Math.min(72, Math.round(W*H/20000)));
     init();
   }
   function init(){
@@ -26,8 +26,8 @@
     for(var i=0;i<COUNT;i++){
       nodes.push({
         x:Math.random()*W, y:Math.random()*H,
-        vx:(Math.random()-0.5)*0.18, vy:(Math.random()-0.5)*0.18,
-        r:Math.random()*1.5+0.7, ph:Math.random()*Math.PI*2
+        vx:(Math.random()-0.5)*0.28, vy:(Math.random()-0.5)*0.28,
+        r:Math.random()*1.8+1.1, ph:Math.random()*Math.PI*2
       });
     }
   }
@@ -35,29 +35,34 @@
     ctx.clearRect(0,0,W,H);
     mouse.x += (mouse.tx-mouse.x)*0.05;
     mouse.y += (mouse.ty-mouse.y)*0.05;
-    var px = mouse.x*14, py = mouse.y*14 + scrollY*0.05;
-    var MAX = Math.min(150, W/6);
+    var px = mouse.x*22, py = mouse.y*22 + scrollY*0.06;
+    var MAX = Math.min(195, W/4.5);
     for(var i=0;i<nodes.length;i++){
       var n=nodes[i]; n.x+=n.vx; n.y+=n.vy;
-      if(n.x<-20)n.x=W+20; if(n.x>W+20)n.x=-20; if(n.y<-20)n.y=H+20; if(n.y>H+20)n.y=-20;
+      if(n.x<-30)n.x=W+30; if(n.x>W+30)n.x=-30; if(n.y<-30)n.y=H+30; if(n.y>H+30)n.y=-30;
     }
+    // links
+    ctx.lineWidth = 0.9;
     for(var i=0;i<nodes.length;i++){
       var a=nodes[i];
       for(var j=i+1;j<nodes.length;j++){
         var b=nodes[j], dx=a.x-b.x, dy=a.y-b.y, d2=dx*dx+dy*dy;
         if(d2<MAX*MAX){
-          var d=Math.sqrt(d2), alpha=(1-d/MAX)*0.20, c=nova(((a.x+b.x)/2)/W);
+          var d=Math.sqrt(d2), alpha=(1-d/MAX)*0.38, c=nova(((a.x+b.x)/2)/W);
           ctx.strokeStyle='rgba('+c[0]+','+c[1]+','+c[2]+','+alpha+')';
-          ctx.lineWidth=0.6; ctx.beginPath();
-          ctx.moveTo(a.x+px,a.y+py); ctx.lineTo(b.x+px,b.y+py); ctx.stroke();
+          ctx.beginPath(); ctx.moveTo(a.x+px,a.y+py); ctx.lineTo(b.x+px,b.y+py); ctx.stroke();
         }
       }
     }
+    // nodes (with soft glow)
+    ctx.shadowBlur = 8;
     for(var i=0;i<nodes.length;i++){
-      var n=nodes[i], pulse=0.55+0.45*Math.sin(now*0.001+n.ph), c=nova(n.x/W);
-      ctx.fillStyle='rgba('+c[0]+','+c[1]+','+c[2]+','+(0.55*pulse)+')';
+      var n=nodes[i], pulse=0.7+0.3*Math.sin(now*0.0012+n.ph), c=nova(n.x/W);
+      ctx.shadowColor='rgba('+c[0]+','+c[1]+','+c[2]+',0.9)';
+      ctx.fillStyle='rgba('+c[0]+','+c[1]+','+c[2]+','+(0.95*pulse)+')';
       ctx.beginPath(); ctx.arc(n.x+px,n.y+py,n.r,0,Math.PI*2); ctx.fill();
     }
+    ctx.shadowBlur = 0;
     raf = requestAnimationFrame(draw);
   }
   function start(){ if(!raf && !reduced) raf=requestAnimationFrame(draw); }
