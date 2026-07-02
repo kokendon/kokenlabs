@@ -84,22 +84,11 @@
           <h2 id="book-h">Book your free discovery call</h2>
         </div>
 
-        <!-- ========================================================
-             BOOKING EMBED PLACEHOLDER
-             Replace this block with your scheduler embed, e.g. Calendly:
-             <div class="calendly-inline-widget"
-                  data-url="https://calendly.com/YOUR-KOKEN-LINK/discovery-call"
-                  style="min-width:320px;height:700px"></div>
-             <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
-             ======================================================== -->
-        <div class="booking-embed reveal">
-          <div>
-            <h3>Scheduling calendar goes here</h3>
-            <p class="muted">While we wire up online booking, email us and we'll reply with times within one business day:</p>
-            <a class="btn btn-primary btn-lg" href="mailto:hello@kokenlabs.ai?subject=Free%20discovery%20call">Email us to book</a>
-            <p class="btn-note"><!-- PLACEHOLDER: confirm contact email + add phone if desired -->hello@kokenlabs.ai</p>
-          </div>
-        </div>
+        <!-- Cal.com inline embed — booking page: https://cal.com/kokenlabs/free-discovery-call -->
+        <div id="cal-embed" style="width:100%;min-height:660px;overflow:auto"></div>
+        <p class="center muted" style="margin-top:1rem">Calendar not loading? Book directly at
+          <a href="https://cal.com/kokenlabs/free-discovery-call" rel="noopener">cal.com/kokenlabs/free-discovery-call</a>
+          or email <a href="mailto:hello@kokenlabs.ai?subject=Free%20discovery%20call">hello@kokenlabs.ai</a>.</p>
 
         <div class="grid grid-3" style="margin-top:2.5rem">
           <div class="card reveal"><h3>What it is</h3><p>A friendly conversation about how your business runs and where AI might genuinely help.</p></div>
@@ -197,5 +186,21 @@
   </footer>
 
   <script src="site.js" defer></script>
+  <!-- Cal.com embed loader (official snippet) -->
+  <script type="text/javascript">
+    (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if (typeof namespace === "string") { cal.ns[namespace] = cal.ns[namespace] || api; p(cal.ns[namespace], ar); p(cal, ["initNamespace", namespace]); } else p(cal, ar); return; } p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+    Cal("init", "free-discovery-call", { origin: "https://app.cal.com" });
+    Cal.ns["free-discovery-call"]("inline", {
+      elementOrSelector: "#cal-embed",
+      config: { layout: "month_view", theme: "dark" },
+      calLink: "kokenlabs/free-discovery-call"
+    });
+    Cal.ns["free-discovery-call"]("ui", {
+      theme: "dark",
+      cssVarsPerTheme: { dark: { "cal-brand": "#A24BFF" } },
+      hideEventTypeDetails: false,
+      layout: "month_view"
+    });
+  </script>
 </body>
 </html>
