@@ -1,3 +1,4 @@
+# Koken Labs — welcome, crawlers (search engines AND AI assistants)
 User-agent: *
 Allow: /
 

@@ -1,84 +1,82 @@
-// Koken Labs — hero node constellation (hero-only, brand Nova gradient)
-(function(){
-  var canvas = document.querySelector('.hero-canvas');
-  if(!canvas) return;
-  var hero = canvas.closest('.hero');
-  var ctx = canvas.getContext('2d');
-  var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var dpr = Math.min(window.devicePixelRatio || 1, 2);
-  var W = 0, H = 0, nodes = [], COUNT = 0, raf = null;
-  var mouse = {x:0,y:0,tx:0,ty:0}, scrollY = 0;
+/* Koken Labs — hero-fx.js
+   Subtle "chaos to clarity" constellation: scattered points drift into a calm
+   ordered line as they cross the hero. Canvas only; hidden under
+   prefers-reduced-motion (CSS) and skipped here too. Lightweight (~40 nodes). */
+(function () {
+  var canvas = document.getElementById('hero-canvas');
+  if (!canvas) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
-  function mix(a,b,t){ return a + (b-a)*t; }
-  function nova(t){ // violet (#A24BFF) -> pink (#FF53B1)
-    return [Math.round(mix(162,255,t)), Math.round(mix(75,83,t)), Math.round(mix(255,177,t))];
+  var ctx = canvas.getContext('2d');
+  var dpr = Math.min(window.devicePixelRatio || 1, 2);
+  var W, H, nodes = [];
+  var N = 40;
+
+  function resize() {
+    var r = canvas.parentElement.getBoundingClientRect();
+    W = r.width; H = r.height;
+    canvas.width = W * dpr; canvas.height = H * dpr;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
   }
-  function size(){
-    W = hero.clientWidth; H = hero.clientHeight;
-    canvas.width = W*dpr; canvas.height = H*dpr;
-    canvas.style.width = W+'px'; canvas.style.height = H+'px';
-    ctx.setTransform(dpr,0,0,dpr,0,0);
-    COUNT = Math.max(32, Math.min(72, Math.round(W*H/20000)));
-    init();
+
+  function spawn(i) {
+    return {
+      x: Math.random() * W,
+      y: Math.random() * H,
+      vx: (Math.random() - 0.5) * 0.25,
+      vy: (Math.random() - 0.5) * 0.25,
+      r: 1 + Math.random() * 1.6,
+      p: i / N
+    };
   }
-  function init(){
+
+  function init() {
+    resize();
     nodes = [];
-    for(var i=0;i<COUNT;i++){
-      nodes.push({
-        x:Math.random()*W, y:Math.random()*H,
-        vx:(Math.random()-0.5)*0.28, vy:(Math.random()-0.5)*0.28,
-        r:Math.random()*1.8+1.1, ph:Math.random()*Math.PI*2
-      });
-    }
+    for (var i = 0; i < N; i++) nodes.push(spawn(i));
   }
-  function draw(now){
-    ctx.clearRect(0,0,W,H);
-    mouse.x += (mouse.tx-mouse.x)*0.05;
-    mouse.y += (mouse.ty-mouse.y)*0.05;
-    var px = mouse.x*22, py = mouse.y*22 + scrollY*0.06;
-    var MAX = Math.min(195, W/4.5);
-    for(var i=0;i<nodes.length;i++){
-      var n=nodes[i]; n.x+=n.vx; n.y+=n.vy;
-      if(n.x<-30)n.x=W+30; if(n.x>W+30)n.x=-30; if(n.y<-30)n.y=H+30; if(n.y>H+30)n.y=-30;
-    }
-    // links
-    ctx.lineWidth = 0.9;
-    for(var i=0;i<nodes.length;i++){
-      var a=nodes[i];
-      for(var j=i+1;j<nodes.length;j++){
-        var b=nodes[j], dx=a.x-b.x, dy=a.y-b.y, d2=dx*dx+dy*dy;
-        if(d2<MAX*MAX){
-          var d=Math.sqrt(d2), alpha=(1-d/MAX)*0.38, c=nova(((a.x+b.x)/2)/W);
-          ctx.strokeStyle='rgba('+c[0]+','+c[1]+','+c[2]+','+alpha+')';
-          ctx.beginPath(); ctx.moveTo(a.x+px,a.y+py); ctx.lineTo(b.x+px,b.y+py); ctx.stroke();
+
+  function tick() {
+    ctx.clearRect(0, 0, W, H);
+    for (var i = 0; i < nodes.length; i++) {
+      var n = nodes[i];
+      // Chaos on the left eases into order on the right.
+      var order = Math.max(0, Math.min(1, n.x / W));       // 0 = chaos, 1 = clarity
+      var targetY = H * 0.5;
+      n.x += n.vx + 0.12;                                   // slow drift rightward
+      n.y += n.vy * (1 - order) + (targetY - n.y) * 0.0035 * order;
+      if (n.x > W + 12) { nodes[i] = spawn(i); nodes[i].x = -10; continue; }
+      if (n.y < -12 || n.y > H + 12) n.vy *= -1;
+
+      // links to close neighbors
+      for (var j = i + 1; j < nodes.length; j++) {
+        var m = nodes[j], dx = n.x - m.x, dy = n.y - m.y, d2 = dx * dx + dy * dy;
+        if (d2 < 110 * 110) {
+          var a = (1 - Math.sqrt(d2) / 110) * 0.22;
+          ctx.strokeStyle = 'rgba(162,75,255,' + a.toFixed(3) + ')';
+          ctx.lineWidth = 1;
+          ctx.beginPath(); ctx.moveTo(n.x, n.y); ctx.lineTo(m.x, m.y); ctx.stroke();
         }
       }
+      // node: violet in chaos, pink as it clarifies
+      var cr = Math.round(162 + (255 - 162) * order);
+      var cg = Math.round(75 + (83 - 75) * order);
+      var cb = Math.round(255 + (177 - 255) * order);
+      ctx.fillStyle = 'rgba(' + cr + ',' + cg + ',' + cb + ',0.75)';
+      ctx.beginPath(); ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2); ctx.fill();
     }
-    // nodes (with soft glow)
-    ctx.shadowBlur = 8;
-    for(var i=0;i<nodes.length;i++){
-      var n=nodes[i], pulse=0.7+0.3*Math.sin(now*0.0012+n.ph), c=nova(n.x/W);
-      ctx.shadowColor='rgba('+c[0]+','+c[1]+','+c[2]+',0.9)';
-      ctx.fillStyle='rgba('+c[0]+','+c[1]+','+c[2]+','+(0.95*pulse)+')';
-      ctx.beginPath(); ctx.arc(n.x+px,n.y+py,n.r,0,Math.PI*2); ctx.fill();
-    }
-    ctx.shadowBlur = 0;
-    raf = requestAnimationFrame(draw);
+    raf = requestAnimationFrame(tick);
   }
-  function start(){ if(!raf && !reduced) raf=requestAnimationFrame(draw); }
-  function stop(){ if(raf){ cancelAnimationFrame(raf); raf=null; } }
 
-  window.addEventListener('resize', size);
-  window.addEventListener('scroll', function(){ scrollY=window.scrollY||window.pageYOffset||0; }, {passive:true});
-  window.addEventListener('mousemove', function(e){
-    mouse.tx=(e.clientX/window.innerWidth-0.5)*2;
-    mouse.ty=(e.clientY/window.innerHeight-0.5)*2;
-  }, {passive:true});
-  if('IntersectionObserver' in window){
-    new IntersectionObserver(function(es){ es.forEach(function(e){ e.isIntersecting?start():stop(); }); },{threshold:0}).observe(hero);
-  }
-  document.addEventListener('visibilitychange', function(){ document.hidden?stop():start(); });
-
-  size();
-  if(reduced){ requestAnimationFrame(function(now){ draw(now); stop(); }); } else { start(); }
+  var raf;
+  init();
+  tick();
+  var rt;
+  window.addEventListener('resize', function () {
+    clearTimeout(rt); rt = setTimeout(init, 150);
+  });
+  // Pause when tab hidden
+  document.addEventListener('visibilitychange', function () {
+    if (document.hidden) cancelAnimationFrame(raf); else tick();
+  });
 })();

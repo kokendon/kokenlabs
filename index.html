@@ -1,203 +1,410 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Koken Labs — Applied AI, shipped in weeks not quarters</title>
-<meta name="description" content="Koken Labs ships AI-first products, custom agents, and workflow automation — real engineering plus frontier models, in production in weeks, not quarters.">
-<link rel="canonical" href="https://kokenlabs.ai/">
-<meta name="robots" content="index,follow">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Koken Labs — Applied AI, end to end.">
-<meta property="og:description" content="AI-first builds, agents, and automation shipped to production in weeks, not quarters.">
-<meta property="og:url" content="https://kokenlabs.ai/">
-<meta property="og:image" content="https://kokenlabs.ai/assets/kokenlabs-mark.svg">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Koken Labs — Applied AI, end to end.">
-<meta name="twitter:description" content="AI-first builds, agents, and automation shipped to production in weeks, not quarters.">
-<meta name="theme-color" content="#0A0B0E">
-<link rel="icon" type="image/svg+xml" href="assets/kokenlabs-monogram.svg">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"ProfessionalService","name":"Koken Labs","url":"https://kokenlabs.ai","logo":"https://kokenlabs.ai/assets/kokenlabs-mark.svg","description":"Applied AI consultancy and product studio. AI-first web & app builds, custom AI agents, and workflow automation shipped to production in weeks.","slogan":"From chaos to clarity.","email":"hello@kokenlabs.ai","areaServed":"Global","serviceType":["AI web and app development","AI agents","Workflow automation","AI strategy"]}
-</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Made Simple for Your Business | Koken Labs</title>
+  <meta name="description" content="Koken Labs turns AI confusion into a clear plan. Plain-English training, strategy, and done-for-you AI setup for your business. Book a free discovery call.">
+  <link rel="canonical" href="https://kokenlabs.ai/">
+  <meta name="theme-color" content="#0A0B0E">
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Koken Labs">
+  <meta property="og:title" content="AI Made Simple for Your Business | Koken Labs">
+  <meta property="og:description" content="From chaos to clarity. Plain-English AI training, strategy, and done-for-you setup. Book a free discovery call — no tech knowledge needed.">
+  <meta property="og:url" content="https://kokenlabs.ai/">
+  <meta property="og:image" content="https://kokenlabs.ai/assets/kokenlabs-og.png"><!-- PLACEHOLDER: add 1200x630 OG image -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AI Made Simple for Your Business | Koken Labs">
+  <meta name="twitter:description" content="From chaos to clarity. Plain-English AI training, strategy, and done-for-you setup.">
+  <meta name="twitter:image" content="https://kokenlabs.ai/assets/kokenlabs-og.png">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;700&family=Space+Grotesk:wght@500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/svg+xml" href="assets/kokenlabs-monogram.svg">
+
+  <!-- Structured data: Organization + WebSite -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://kokenlabs.ai/#org",
+        "name": "Koken Labs",
+        "url": "https://kokenlabs.ai/",
+        "logo": "https://kokenlabs.ai/assets/kokenlabs-mark.svg",
+        "slogan": "From Chaos to Clarity",
+        "description": "Applied-AI company. Plain-English AI training, strategy, done-for-you implementation, and purpose-built AI tools for businesses.",
+        "email": "hello@kokenlabs.ai",
+        "sameAs": []
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://kokenlabs.ai/#website",
+        "url": "https://kokenlabs.ai/",
+        "name": "Koken Labs",
+        "publisher": { "@id": "https://kokenlabs.ai/#org" }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Structured data: Home FAQ (mirrors visible FAQ below) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is AI, in plain English?",
+        "acceptedAnswer": { "@type": "Answer", "text": "AI is software that can read, write, listen, and make simple decisions — the kinds of tasks that used to need a person. In a business, that means it can answer customer emails, summarize documents, fill in paperwork, and keep track of details, so you and your team spend time on work that actually needs a human." }
+      },
+      {
+        "@type": "Question",
+        "name": "Do I need to be technical to work with Koken Labs?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No. Most of our clients aren't technical at all. We explain everything in plain English, we handle the technical work ourselves, and you never have to touch code. If you can describe how your business works, that's all we need." }
+      },
+      {
+        "@type": "Question",
+        "name": "How much does it cost to get started with AI?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Less than most people expect. Many useful AI tools cost $20–$60 per person per month. The discovery call is free, training workshops start in the hundreds, and a typical done-for-you setup is a fixed project price we agree on before any work starts. You'll always know the number up front." }
+      },
+      {
+        "@type": "Question",
+        "name": "Will AI replace my staff?",
+        "acceptedAnswer": { "@type": "Answer", "text": "In our experience, no — it takes over the repetitive parts of their jobs, like retyping information, sorting messages, and writing first drafts. Your people keep the judgment calls and the relationships. Most teams end up doing more valuable work, not less work." }
+      },
+      {
+        "@type": "Question",
+        "name": "What happens on the free discovery call?",
+        "acceptedAnswer": { "@type": "Answer", "text": "We talk for 30 minutes about how your business runs and where things feel slow or messy. Then we tell you honestly whether AI can help, roughly what it would cost, and what we'd do first. No tech knowledge needed, no pressure, and no obligation — you leave with clarity either way." }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Vercel Web Analytics -->
+  <script defer src="/_vercel/insights/script.js"></script>
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-<header class="nav">
-  <div class="nav-inner">
-    <a href="index.html" aria-label="Koken Labs home"><img class="nav-logo" src="assets/kokenlabs-logo-dark.svg" alt="Koken Labs"></a>
-    <button class="nav-toggle" aria-label="Toggle menu">☰</button>
-    <nav class="nav-links">
-      <a href="index.html" class="active">Home</a>
-      <a href="services.html">Services</a>
-      <a href="about.html">About</a>
-      <a href="contact.html" class="btn btn-primary" style="padding:10px 20px">Start a build</a>
-    </nav>
-  </div>
-</header>
-
-<main>
-<!-- HERO -->
-<section class="hero">
-  <canvas class="hero-canvas" aria-hidden="true"></canvas>
-  <div class="wrap">
-    <span class="eyebrow mono"><span class="dot"></span> Applied AI · end to end</span>
-    <h1 class="display">From chaos to clarity.</h1>
-    <p class="lede">We pair frontier models with real engineering and ship AI into your stack — products, agents, and automation that work in production. <strong style="color:var(--cloud)">In weeks, not quarters.</strong></p>
-    <div class="hero-cta">
-      <a href="contact.html" class="btn btn-primary">Start a build →</a>
-      <a href="services.html" class="btn btn-ghost">See the work</a>
-    </div>
-    <p class="mono" style="color:var(--mist);margin-top:20px">Clear price &amp; timeline in ~2 business days · no bloated SOWs</p>
-    <div class="hero-stats">
-      <div class="stat"><div class="n grad-text">Weeks</div><div class="l">to production, not quarters</div></div>
-      <div class="stat"><div class="n grad-text">0</div><div class="l">armies of billable consultants</div></div>
-      <div class="stat"><div class="n grad-text">100%</div><div class="l">AI-accelerated delivery</div></div>
-    </div>
-  </div>
-</section>
-
-<!-- TRUST STRIP -->
-<section style="padding:38px 0;border-top:1px solid var(--steel);border-bottom:1px solid var(--steel)" class="alt">
-  <div class="wrap" style="text-align:center">
-    <p class="mono" style="color:var(--mist);margin-bottom:20px">Built on frontier models &amp; production-grade tooling</p>
-    <div style="display:flex;flex-wrap:wrap;gap:14px 34px;justify-content:center;align-items:center;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:1.05rem;color:var(--cloud)">
-      <span>Claude</span><span style="color:var(--steel)">/</span>
-      <span>OpenAI</span><span style="color:var(--steel)">/</span>
-      <span>Next.js</span><span style="color:var(--steel)">/</span>
-      <span>Python</span><span style="color:var(--steel)">/</span>
-      <span>AWS</span><span style="color:var(--steel)">/</span>
-      <span>Vercel</span>
-    </div>
-  </div>
-</section>
-
-<!-- PROBLEM / STORY -->
-<section class="alt">
-  <div class="wrap">
-    <div class="section-head center reveal">
-      <span class="mono">01 — The gap</span>
-      <h2>Most AI work is still a slide deck.</h2>
-      <p>The big firms sell multi-quarter "transformation journeys" billed by the hour. Marketing shops bolt a chatbot onto your CRM. Either way, you wait, you pay, and not much ships. Koken Labs is built the other way around: small senior team, AI doing the heavy lifting, working software in your hands fast.</p>
-    </div>
-    <div class="grid g3">
-      <div class="card reveal"><div class="ico">⚡</div><h3>Speed as the default</h3><p>AI-accelerated engineering compresses months of build into weeks. You see something real on day one, not a statement of work.</p></div>
-      <div class="card reveal"><div class="ico">🧠</div><h3>Frontier models, real engineering</h3><p>We don't demo prototypes. We ship dependable systems — tested, monitored, and built to run in production.</p></div>
-      <div class="card reveal"><div class="ico">🎯</div><h3>Productized, not padded</h3><p>Fixed-scope offers and reusable agent frameworks mean low overhead for us — and a clear price for you.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- SERVICES -->
-<section>
-  <div class="wrap">
-    <div class="section-head reveal">
-      <span class="mono">02 — What we do</span>
-      <h2>AI-first services that do real work.</h2>
-      <p>Four ways we put applied AI into production — each designed to lean on automation, not manual labor.</p>
-    </div>
-    <div class="grid g2">
-      <div class="card reveal"><div class="ico">🚀</div><h3>AI-Accelerated Web &amp; App Builds</h3><p>Sites and applications designed and shipped with AI-augmented engineering. Fast, sharp, and built to scale.</p><div class="tags"><span class="tag">Next.js</span><span class="tag">Full-stack</span><span class="tag">Design → ship</span></div></div>
-      <div class="card reveal"><div class="ico">🤖</div><h3>AI Agents &amp; Automation</h3><p>Custom agents that qualify leads, run ops, handle support, and build reports — wired into the tools you already use.</p><div class="tags"><span class="tag">Agents</span><span class="tag">RAG</span><span class="tag">Integrations</span></div></div>
-      <div class="card reveal"><div class="ico">🔧</div><h3>Workflow Automation</h3><p>Kill the manual busywork. We connect your stack and let AI move the work so your team stops copy-pasting.</p><div class="tags"><span class="tag">Ops</span><span class="tag">Pipelines</span><span class="tag">Zero-touch</span></div></div>
-      <div class="card reveal"><div class="ico">🧭</div><h3>AI Strategy Sprint</h3><p>A short, paid sprint to find your highest-value use cases and a real roadmap — not a six-month assessment.</p><div class="tags"><span class="tag">Readiness</span><span class="tag">Roadmap</span><span class="tag">2 weeks</span></div></div>
-    </div>
-    <div style="text-align:center;margin-top:40px" class="reveal"><a href="services.html" class="btn btn-ghost">Explore all services →</a></div>
-  </div>
-</section>
-
-<!-- COMPARISON -->
-<section class="alt">
-  <div class="wrap">
-    <div class="section-head center reveal">
-      <span class="mono">03 — Why Koken</span>
-      <h2>Big-firm capability. None of the drag.</h2>
-      <p>How we stack up against the consultancies and agencies you're probably also weighing.</p>
-    </div>
-    <div class="reveal" style="overflow-x:auto">
-    <table class="compare">
-      <thead><tr><th></th><th class="us">Koken Labs</th><th>Big consultancies</th><th>Marketing agencies</th></tr></thead>
-      <tbody>
-        <tr><td>Time to production</td><td class="us">Weeks</td><td>Quarters</td><td>Months</td></tr>
-        <tr><td>Delivery model</td><td class="us">Small senior team + AI</td><td>Large billable teams</td><td>Generalists + tools</td></tr>
-        <tr><td>Pricing</td><td class="us">Productized, fixed-scope</td><td>Time &amp; materials</td><td>Retainers</td></tr>
-        <tr><td>Real engineering</td><td class="us"><span class="check">✓</span></td><td><span class="check">✓</span></td><td><span class="cross">limited</span></td></tr>
-        <tr><td>Custom AI agents</td><td class="us"><span class="check">✓</span></td><td><span class="check">✓</span></td><td><span class="cross">templated</span></td></tr>
-        <tr><td>Works with SMB &amp; mid-market</td><td class="us"><span class="check">✓</span></td><td><span class="cross">enterprise only</span></td><td><span class="check">✓</span></td></tr>
-      </tbody>
-    </table>
-    </div>
-  </div>
-</section>
-
-<!-- PROCESS -->
-<section>
-  <div class="wrap">
-    <div class="section-head reveal">
-      <span class="mono">04 — How it works</span>
-      <h2>From kickoff to live in four moves.</h2>
-    </div>
-    <div class="steps">
-      <div class="step reveal"><h4>Map</h4><p>A focused session to pin the use case, success metric, and scope.</p></div>
-      <div class="step reveal"><h4>Build</h4><p>AI-accelerated sprints. You see working software early and often.</p></div>
-      <div class="step reveal"><h4>Ship</h4><p>Tested, monitored, deployed into your stack — production from day one.</p></div>
-      <div class="step reveal"><h4>Run</h4><p>We harden, measure, and hand off — or keep it running for you.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- CTA -->
-<section>
-  <div class="wrap">
-    <div class="cta-band reveal">
-      <span class="mono" style="color:var(--nova-violet)">STATUS: LIVE · kokenlabs.ai</span>
-      <h2 style="margin-top:14px">Intelligence, shipped.</h2>
-      <p>Tell us what you want working in production. We'll tell you how fast we can ship it.</p>
-      <a href="contact.html" class="btn btn-primary">Start a build →</a>
-    </div>
-  </div>
-</section>
-</main>
-
-<footer>
-  <div class="wrap">
-    <div class="foot-grid">
-      <div class="foot-col" style="max-width:280px">
-        <img class="foot-logo" src="assets/kokenlabs-logo-dark.svg" alt="Koken Labs">
-        <p style="color:var(--mist);font-size:.94rem">Applied AI, end to end — from intelligent web &amp; app builds to autonomous agents, strategy, and products.</p>
-      </div>
-      <div class="foot-col">
-        <h5>Company</h5>
-        <a href="index.html">Home</a>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="logo" href="index.html" aria-label="Koken Labs home">
+        <img src="assets/kokenlabs-logo-dark.svg" alt="Koken Labs" width="110" height="40">
+      </a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="site-nav" id="site-nav" aria-label="Main">
+        <a href="index.html" aria-current="page">Home</a>
         <a href="services.html">Services</a>
         <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
+        <a href="learn.html">Learn</a>
+        <a class="btn btn-primary" href="contact.html#book">Book a Free Call</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero" aria-label="Introduction">
+      <div class="hero-bg" aria-hidden="true"><canvas id="hero-canvas"></canvas></div>
+      <div class="wrap">
+        <h1>AI is everywhere.<br><span class="grad-text">Knowing where to start shouldn't be hard.</span></h1>
+        <p class="lede">Koken Labs helps businesses use AI without the jargon, the hype, or the headache. We explain it in plain English, find where it actually helps you, and set it up so it just works. From chaos to clarity.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary btn-lg" href="contact.html#book">Book a free discovery call</a>
+          <a class="btn btn-ghost btn-lg" href="learn.html">Start with plain-English answers</a>
+        </div>
+        <p class="hero-reassure">No tech knowledge needed. No obligation. <em>Just clarity.</em></p>
       </div>
-      <div class="foot-col">
-        <h5>Services</h5>
-        <a href="services.html#builds">Web &amp; App Builds</a>
-        <a href="services.html#agents">AI Agents</a>
-        <a href="services.html#automation">Automation</a>
-        <a href="services.html#strategy">Strategy Sprint</a>
+    </section>
+
+    <!-- ============ EMPATHY (light relief section) ============ -->
+    <section class="section section--light" aria-labelledby="empathy-h">
+      <div class="wrap">
+        <div class="section-head center">
+          <p class="eyebrow">You're not behind</p>
+          <h2 id="empathy-h">Not sure where to start with AI? That's exactly why we exist.</h2>
+          <p class="lede">Every week there's a new tool, a new headline, a new "you're falling behind" post. It's a lot. Here's the truth: most businesses haven't figured this out yet — and the ones that do well don't start with technology. They start with a calm conversation about how their business actually works.</p>
+        </div>
+        <div class="grid grid-3">
+          <div class="card reveal">
+            <h3>"I don't even know what AI is."</h3>
+            <p>Good news: it's simpler than the headlines make it sound. It's software that can read, write, and handle routine tasks. We'll explain it in an afternoon, not a semester.</p>
+          </div>
+          <div class="card reveal">
+            <h3>"I don't know what it would do for me."</h3>
+            <p>Neither did most of our clients — until we looked at their week together and found the hours going to repetitive work a computer can do.</p>
+          </div>
+          <div class="card reveal">
+            <h3>"I'm worried I'll waste money on the wrong thing."</h3>
+            <p>That's a smart worry. It's why we start with a plan, not a purchase — and tell you honestly if AI isn't the answer yet.</p>
+          </div>
+        </div>
       </div>
-      <div class="foot-col">
-        <h5>Get in touch</h5>
-        <a href="mailto:hello@kokenlabs.ai">hello@kokenlabs.ai</a>
-        <a href="contact.html">Start a build</a>
+    </section>
+
+    <!-- ============ PROMISE ============ -->
+    <section class="section" aria-labelledby="promise-h">
+      <div class="wrap">
+        <div class="section-head center">
+          <p class="eyebrow">Our promise</p>
+          <h2 id="promise-h">From chaos <span class="grad-text">to clarity.</span></h2>
+          <p class="lede">We're engineers who build with AI every day — and we've made it our job to be the calm starting point for people who don't. Here's what working with us feels like:</p>
+        </div>
+        <div class="grid grid-3">
+          <div class="card reveal">
+            <span class="card-tag">Plain English</span>
+            <h3>You'll understand everything.</h3>
+            <p>No jargon, ever. If we can't explain it simply, we haven't earned the right to build it for you.</p>
+          </div>
+          <div class="card reveal">
+            <span class="card-tag">Honest advice</span>
+            <h3>We'll tell you what NOT to buy.</h3>
+            <p>Most businesses need two or three well-chosen tools — not twenty. We'll point at the few that pay for themselves.</p>
+          </div>
+          <div class="card reveal">
+            <span class="card-tag">Real results</span>
+            <h3>Weeks, not quarters.</h3>
+            <p>We ship working AI into your business in weeks. You'll see the time saved on your own calendar, not on a slide.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SERVICES ============ -->
+    <section class="section" aria-labelledby="services-h">
+      <div class="wrap">
+        <div class="section-head center">
+          <p class="eyebrow">What we do</p>
+          <h2 id="services-h">Four ways we help — enter wherever you are.</h2>
+          <p class="lede">Some people want to understand AI first. Some want a plan. Some just want it done. All four connect, and you can start at any of them.</p>
+        </div>
+        <div class="grid grid-2">
+          <div class="card reveal">
+            <div class="svc-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#A24BFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
+            <h3>Learn AI</h3>
+            <p><strong>Training &amp; coaching.</strong> Workshops and 1-on-1 sessions that make AI make sense. Understand it in an afternoon, not a semester.</p>
+            <a class="card-link" href="services.html#learn">How training works →</a>
+          </div>
+          <div class="card reveal">
+            <div class="svc-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#A24BFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg></div>
+            <h3>Plan Your AI</h3>
+            <p><strong>Consulting &amp; strategy.</strong> We look at how you work and map the handful of places AI will actually save you time or money. A clear plan, no guesswork.</p>
+            <a class="card-link" href="services.html#plan">How planning works →</a>
+          </div>
+          <div class="card reveal">
+            <div class="svc-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#A24BFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
+            <h3>Done-For-You Setup</h3>
+            <p><strong>Implementation.</strong> We build and plug the AI tools into your business so they just work. You get the results without touching the tech.</p>
+            <a class="card-link" href="services.html#build">How setup works →</a>
+          </div>
+          <div class="card reveal">
+            <div class="svc-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#A24BFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg></div>
+            <h3>Our Tools</h3>
+            <p><strong>Software we've built.</strong> Purpose-built AI tools that solve common problems out of the box. Built by us, ready for you.</p>
+            <a class="card-link" href="services.html#tools">See our tools →</a>
+          </div>
+        </div>
+        <p class="journey reveal" aria-label="The path: learn, plan, build, run">
+          <span>Learn</span> <span class="journey-sep">→</span>
+          <span>Plan</span> <span class="journey-sep">→</span>
+          <span>Build</span> <span class="journey-sep">→</span>
+          <span>Run</span>
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ HOW IT WORKS ============ -->
+    <section class="section" aria-labelledby="how-h">
+      <div class="wrap">
+        <div class="section-head center">
+          <p class="eyebrow">How it works</p>
+          <h2 id="how-h">Three steps. The first one is free.</h2>
+        </div>
+        <div class="grid grid-3">
+          <div class="step reveal">
+            <span class="step-num">01</span>
+            <h3>Talk</h3>
+            <p class="muted">A free 30-minute call. You tell us how your business runs and where things feel slow. We listen — no pitch, no jargon.</p>
+          </div>
+          <div class="step reveal">
+            <span class="step-num">02</span>
+            <h3>Plan</h3>
+            <p class="muted">We come back with a short, plain-English plan: the two or three places AI will genuinely help, what it costs, and what to skip.</p>
+          </div>
+          <div class="step reveal">
+            <span class="step-num">03</span>
+            <h3>Build</h3>
+            <p class="muted">If you want it done, we set everything up, train your team, and stay until it's working. Weeks, not quarters.</p>
+          </div>
+        </div>
+        <div class="center" style="margin-top:2.5rem">
+          <a class="btn btn-primary btn-lg" href="contact.html#book">Start with the free call</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ REAL-WORLD EXAMPLES ============ -->
+    <section class="section" aria-labelledby="examples-h">
+      <div class="wrap">
+        <div class="section-head center">
+          <p class="eyebrow">Real examples</p>
+          <h2 id="examples-h">What could AI actually do for your business?</h2>
+          <p class="lede">Forget the buzzwords. Here's the kind of everyday work AI already does for businesses like yours:</p>
+        </div>
+        <div class="grid grid-2">
+          <div class="example reveal">
+            <span class="ex-icon" aria-hidden="true">✉</span>
+            <div><h3>Answer customer emails while you sleep</h3><p>Drafts friendly, accurate replies to common questions overnight — you review and hit send with coffee in hand.</p></div>
+          </div>
+          <div class="example reveal">
+            <span class="ex-icon" aria-hidden="true">☎</span>
+            <div><h3>Never miss a call again</h3><p>An AI receptionist answers after-hours calls, books appointments, and texts you a summary.</p></div>
+          </div>
+          <div class="example reveal">
+            <span class="ex-icon" aria-hidden="true">🗎</span>
+            <div><h3>Turn a pile of paperwork into a spreadsheet</h3><p>Invoices, receipts, forms — AI reads them and files the details, so nobody retypes anything ever again.</p></div>
+          </div>
+          <div class="example reveal">
+            <span class="ex-icon" aria-hidden="true">✎</span>
+            <div><h3>Write your marketing in your voice</h3><p>Social posts, newsletters, and product descriptions drafted in minutes — you just approve and post.</p></div>
+          </div>
+          <div class="example reveal">
+            <span class="ex-icon" aria-hidden="true">✓</span>
+            <div><h3>Give quotes and estimates faster</h3><p>AI pulls the job details from a customer's message and drafts the estimate before your competitor has read the email.</p></div>
+          </div>
+          <div class="example reveal">
+            <span class="ex-icon" aria-hidden="true">◷</span>
+            <div><h3>Get your evenings back</h3><p>Meeting notes, follow-ups, scheduling, reports — the admin that eats your nights, handled automatically.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ TRUST ============ -->
+    <section class="section" aria-labelledby="trust-h">
+      <div class="wrap">
+        <div class="section-head center">
+          <p class="eyebrow">Why people trust us</p>
+          <h2 id="trust-h">Engineers who explain like humans.</h2>
+          <p class="lede">We build with AI every single day — and we've closed the deals, run the projects, and sat across the table from people who felt exactly like you do now.</p>
+        </div>
+        <!-- PLACEHOLDER TESTIMONIALS: replace with real client quotes + names before wide launch -->
+        <div class="grid grid-3">
+          <blockquote class="card card-quote reveal">
+            <p>"I expected to feel stupid. Instead, an hour in, I understood more about AI than a year of headlines had taught me."</p>
+            <footer>— Workshop attendee <span class="muted">(placeholder — real testimonial coming)</span></footer>
+          </blockquote>
+          <blockquote class="card card-quote reveal">
+            <p>"They told us which tools NOT to buy. That honesty alone paid for the engagement."</p>
+            <footer>— Small business owner <span class="muted">(placeholder — real testimonial coming)</span></footer>
+          </blockquote>
+          <blockquote class="card card-quote reveal">
+            <p>"Two weeks after our call, customer emails were answering themselves. My team thought it was magic. It's just well-applied AI."</p>
+            <footer>— Service company operator <span class="muted">(placeholder — real testimonial coming)</span></footer>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FAQ ============ -->
+    <section class="section" aria-labelledby="faq-h">
+      <div class="wrap">
+        <div class="section-head center">
+          <p class="eyebrow">Honest answers</p>
+          <h2 id="faq-h">The questions everyone asks first</h2>
+          <p class="lede">Short answers here — deeper, plain-English answers on our <a href="learn.html">Learn page</a>.</p>
+        </div>
+        <div style="max-width:46rem;margin:0 auto">
+          <details class="faq-item">
+            <summary><h3>What is AI, in plain English?</h3></summary>
+            <div class="faq-a"><p>AI is software that can read, write, listen, and make simple decisions — the kinds of tasks that used to need a person. In a business, that means it can answer customer emails, summarize documents, fill in paperwork, and keep track of details, so you and your team spend time on work that actually needs a human.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary><h3>Do I need to be technical to work with Koken Labs?</h3></summary>
+            <div class="faq-a"><p>No. Most of our clients aren't technical at all. We explain everything in plain English, we handle the technical work ourselves, and you never have to touch code. If you can describe how your business works, that's all we need.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary><h3>How much does it cost to get started with AI?</h3></summary>
+            <div class="faq-a"><p>Less than most people expect. Many useful AI tools cost $20–$60 per person per month. The discovery call is free, training workshops start in the hundreds, and a typical done-for-you setup is a fixed project price we agree on before any work starts. You'll always know the number up front.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary><h3>Will AI replace my staff?</h3></summary>
+            <div class="faq-a"><p>In our experience, no — it takes over the repetitive parts of their jobs, like retyping information, sorting messages, and writing first drafts. Your people keep the judgment calls and the relationships. Most teams end up doing more valuable work, not less work.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary><h3>What happens on the free discovery call?</h3></summary>
+            <div class="faq-a"><p>We talk for 30 minutes about how your business runs and where things feel slow or messy. Then we tell you honestly whether AI can help, roughly what it would cost, and what we'd do first. No tech knowledge needed, no pressure, and no obligation — you leave with clarity either way.</p></div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FINAL CTA ============ -->
+    <section class="section" aria-labelledby="cta-h">
+      <div class="wrap">
+        <div class="cta-band reveal">
+          <p class="eyebrow" style="justify-content:center">One clear next step</p>
+          <h2 id="cta-h">Ready to swap the chaos for a plan?</h2>
+          <p class="lede">Book a free 30-minute discovery call. No tech knowledge needed. No obligation. Just clarity.</p>
+          <a class="btn btn-primary btn-lg" href="contact.html#book">Book your free call</a>
+          <p class="btn-note">Not ready to talk? <a href="contact.html#guide">Get the free "AI in Plain English" starter guide</a> instead.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div class="footer-mark">
+          <img src="assets/kokenlabs-mark.svg" alt="Koken Labs ō mark" width="44" height="44">
+          <p>Applied AI, end to end.<br>From chaos to clarity.</p>
+        </div>
+        <div>
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="learn.html">Learn</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Get started</h4>
+          <ul>
+            <li><a href="contact.html#book">Book a free call</a></li>
+            <li><a href="contact.html#guide">Free starter guide</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="mailto:hello@kokenlabs.ai">hello@kokenlabs.ai</a><!-- PLACEHOLDER: confirm contact email --></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Koken Labs. All rights reserved.</span>
+        <span>Built by humans, with AI. Obviously.</span>
       </div>
     </div>
-    <div class="foot-bottom">
-      <span class="tagline-foot grad-text">From chaos to clarity.</span>
-      <span class="mono">© 2026 Koken Labs · kokenlabs.ai</span>
-    </div>
-  </div>
-</footer>
-<script src="site.js"></script>
-<script src="hero-fx.js"></script>
-<script defer src="/_vercel/insights/script.js"></script>
+  </footer>
+
+  <script src="site.js" defer></script>
+  <script src="hero-fx.js" defer></script>
 </body>
 </html>
