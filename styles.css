@@ -134,7 +134,7 @@ h3 { font-size: clamp(1.2rem, 2.5vw, 1.5rem); }
   display: flex; align-items: center; justify-content: space-between;
   height: var(--header-h); gap: 1rem;
 }
-.logo img { height: 2.75rem; width: auto; }
+.logo img { height: 3.25rem; width: auto; }
 .site-nav { display: flex; align-items: center; gap: 1.75rem; }
 .site-nav a {
   color: var(--mist); font-weight: 500; font-size: .97rem;
