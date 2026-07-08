@@ -25,7 +25,7 @@
   --max-w: 72rem;
   --radius: 1.25rem;
   --radius-sm: 0.75rem;
-  --header-h: 5rem;
+  --header-h: 4.25rem;
 }
 
 /* ---------- Reset / base ---------- */
@@ -134,7 +134,7 @@ h3 { font-size: clamp(1.2rem, 2.5vw, 1.5rem); }
   display: flex; align-items: center; justify-content: space-between;
   height: var(--header-h); gap: 1rem;
 }
-.logo img { height: 4rem; width: auto; }
+.logo img { height: 2.875rem; width: auto; }
 .site-nav { display: flex; align-items: center; gap: 1.75rem; }
 .site-nav a {
   color: var(--mist); font-weight: 500; font-size: .97rem;
