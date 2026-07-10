@@ -1,0 +1,18 @@
+{
+  "redirects": [
+    { "source": "/linkedin", "destination": "/?utm_source=linkedin&utm_medium=social&utm_campaign=launch", "permanent": false },
+    { "source": "/linkedin-don", "destination": "/?utm_source=linkedin-don&utm_medium=social&utm_campaign=launch", "permanent": false },
+    { "source": "/linkedin-steve", "destination": "/?utm_source=linkedin-steve&utm_medium=social&utm_campaign=launch", "permanent": false },
+    { "source": "/x", "destination": "/?utm_source=x&utm_medium=social&utm_campaign=launch", "permanent": false },
+    { "source": "/x-don", "destination": "/?utm_source=x-don&utm_medium=social&utm_campaign=launch", "permanent": false },
+    { "source": "/x-steve", "destination": "/?utm_source=x-steve&utm_medium=social&utm_campaign=launch", "permanent": false },
+    { "source": "/youtube", "destination": "/?utm_source=youtube&utm_medium=social&utm_campaign=launch", "permanent": false },
+    { "source": "/instagram", "destination": "/?utm_source=instagram&utm_medium=social&utm_campaign=launch", "permanent": false },
+    { "source": "/tiktok", "destination": "/?utm_source=tiktok&utm_medium=social&utm_campaign=launch", "permanent": false },
+    { "source": "/threads", "destination": "/?utm_source=threads&utm_medium=social&utm_campaign=launch", "permanent": false },
+    { "source": "/bluesky", "destination": "/?utm_source=bluesky&utm_medium=social&utm_campaign=launch", "permanent": false },
+    { "source": "/facebook", "destination": "/?utm_source=facebook&utm_medium=social&utm_campaign=launch", "permanent": false },
+    { "source": "/github", "destination": "/?utm_source=github&utm_medium=social&utm_campaign=launch", "permanent": false },
+    { "source": "/newsletter", "destination": "/?utm_source=newsletter&utm_medium=email&utm_campaign=launch", "permanent": false }
+  ]
+}
