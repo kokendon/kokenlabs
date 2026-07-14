@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Koken Labs — Design System v1.0</title>
+<link rel="icon" href="mark.svg">
+<style>
+/* Inlined tokens.css + components.css so this file renders standalone
+   (living style guide + drop-in upload). tokens.css/components.css remain
+   the canonical machine-readable source for /design-sync. */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap');
+:root{
+  --kl-obsidian:#0A0B0E;--kl-carbon:#14161B;--kl-carbon-2:#191C23;--kl-steel:#262A33;
+  --kl-cloud:#F4F6FA;--kl-mist:#99A2B2;--kl-nova-violet:#A24BFF;--kl-nova-pink:#FF53B1;--kl-volt:#C8FA4B;
+  --kl-nova-gradient:linear-gradient(120deg,var(--kl-nova-violet),var(--kl-nova-pink));
+  --kl-bg:var(--kl-obsidian);--kl-surface:var(--kl-carbon);--kl-surface-2:var(--kl-carbon-2);
+  --kl-border:var(--kl-steel);--kl-text:var(--kl-cloud);--kl-text-muted:var(--kl-mist);
+  --kl-accent:var(--kl-nova-violet);--kl-accent-soft:#B673FF;--kl-spark:var(--kl-volt);
+  --kl-font-display:"Space Grotesk","Inter",system-ui,sans-serif;
+  --kl-font-body:"Inter",system-ui,sans-serif;
+  --kl-font-mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+  --kl-weight-semibold:600;--kl-weight-mono:500;--kl-weight-mono-bold:700;
+  --kl-fs-display:clamp(2.4rem,6vw,3.9rem);--kl-fs-h2:clamp(1.75rem,4vw,2.5rem);--kl-fs-h3:clamp(1.2rem,2.5vw,1.5rem);
+  --kl-fs-lede:clamp(1.1rem,2vw,1.3rem);--kl-fs-body:1.0625rem;--kl-fs-small:.95rem;--kl-fs-label:.78rem;
+  --kl-lh-tight:1.15;--kl-lh-body:1.65;--kl-tracking-display:-.015em;--kl-tracking-label:.12em;
+  --kl-space-3:.75rem;--kl-space-4:1rem;--kl-space-5:1.5rem;--kl-space-6:2rem;--kl-space-7:3rem;
+  --kl-radius:1.25rem;--kl-radius-sm:.75rem;--kl-radius-pill:999px;
+  --kl-shadow-primary:0 6px 24px rgba(162,75,255,.35);--kl-shadow-primary-hover:0 10px 32px rgba(255,83,177,.45);
+  --kl-max-w:72rem;
+}
+*,*::before,*::after{box-sizing:border-box;}
+body{margin:0;background:var(--kl-bg);color:var(--kl-text);font-family:var(--kl-font-body);font-size:var(--kl-fs-body);line-height:var(--kl-lh-body);-webkit-font-smoothing:antialiased;}
+.wrap{max-width:var(--kl-max-w);margin:0 auto;padding:0 1.5rem;}
+h1,h2,h3{font-family:var(--kl-font-display);font-weight:var(--kl-weight-semibold);line-height:var(--kl-lh-tight);letter-spacing:var(--kl-tracking-display);margin:0 0 1rem;}
+h1{font-size:var(--kl-fs-display);}h2{font-size:var(--kl-fs-h2);}h3{font-size:var(--kl-fs-h3);}
+.grad-text{background:var(--kl-nova-gradient);-webkit-background-clip:text;background-clip:text;color:transparent;}
+.muted{color:var(--kl-text-muted);}
+.eyebrow{font-family:var(--kl-font-mono);font-weight:700;font-size:var(--kl-fs-label);letter-spacing:.14em;text-transform:uppercase;color:var(--kl-accent-soft);display:inline-flex;align-items:center;gap:.5rem;}
+.eyebrow::before{content:"";width:.5rem;height:.5rem;border-radius:50%;background:var(--kl-nova-gradient);}
+section.block{padding:3.5rem 0;border-top:1px solid var(--kl-border);}
+.block-head{margin-bottom:2rem;}
+.grid{display:grid;gap:1.25rem;}
+.g2{grid-template-columns:repeat(2,1fr);}.g3{grid-template-columns:repeat(3,1fr);}.g4{grid-template-columns:repeat(4,1fr);}
+@media(max-width:60rem){.g4{grid-template-columns:repeat(2,1fr);}.g3{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:44rem){.g2,.g3,.g4{grid-template-columns:1fr;}}
+
+/* swatches */
+.sw{border:1px solid var(--kl-border);border-radius:var(--kl-radius-sm);overflow:hidden;}
+.sw .chip{height:5.5rem;}
+.sw .meta{padding:.7rem .85rem;font-family:var(--kl-font-mono);font-size:.8rem;}
+.sw .meta .name{color:var(--kl-text);font-weight:700;display:block;}
+.sw .meta .hex{color:var(--kl-text-muted);text-transform:uppercase;letter-spacing:.06em;}
+
+/* labels + buttons */
+.kl-label{font-family:var(--kl-font-mono);font-weight:500;font-size:var(--kl-fs-label);letter-spacing:var(--kl-tracking-label);text-transform:uppercase;color:var(--kl-text-muted);border:1px solid var(--kl-border);border-radius:var(--kl-radius-sm);padding:.2rem .6rem;display:inline-flex;align-items:center;gap:.4rem;white-space:nowrap;}
+.kl-chip-volt{font-family:var(--kl-font-mono);font-weight:700;font-size:var(--kl-fs-label);letter-spacing:var(--kl-tracking-label);text-transform:uppercase;color:var(--kl-obsidian);background:var(--kl-spark);border-radius:var(--kl-radius-sm);padding:.2rem .6rem;display:inline-flex;}
+.kl-btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;font-family:var(--kl-font-display);font-weight:600;font-size:1rem;padding:.85rem 1.6rem;border-radius:var(--kl-radius-pill);border:1px solid transparent;cursor:pointer;text-decoration:none;transition:transform .18s ease,box-shadow .18s ease;}
+.kl-btn:hover{transform:translateY(-2px);}
+.kl-btn-primary{background:var(--kl-nova-gradient);color:var(--kl-obsidian);box-shadow:var(--kl-shadow-primary);}
+.kl-btn-primary:hover{box-shadow:var(--kl-shadow-primary-hover);}
+.kl-btn-ghost{background:transparent;color:var(--kl-text);border-color:var(--kl-border);}
+.kl-btn-ghost:hover{border-color:var(--kl-accent);background:rgba(162,75,255,.08);}
+
+.kl-card{background:var(--kl-surface);border:1px solid var(--kl-border);border-radius:var(--kl-radius);padding:1.5rem;}
+.kl-card-tag{font-family:var(--kl-font-mono);font-weight:500;font-size:var(--kl-fs-label);letter-spacing:.1em;text-transform:uppercase;color:var(--kl-accent-soft);display:block;margin-bottom:.75rem;}
+
+/* product-doc */
+.kl-doc-page{background:var(--kl-bg);border:1px solid var(--kl-border);border-radius:var(--kl-radius-sm);padding:2.5rem;}
+.kl-doc-num{font-family:var(--kl-font-mono);font-weight:700;font-size:clamp(4rem,14vw,8rem);line-height:.9;background:var(--kl-nova-gradient);-webkit-background-clip:text;background-clip:text;color:transparent;}
+.kl-doc-cat{font-family:var(--kl-font-display);font-weight:600;font-size:var(--kl-fs-h2);margin:.4rem 0 .3rem;}
+.kl-doc-promise{font-size:var(--kl-fs-lede);color:var(--kl-text-muted);}
+.kl-prompt-card,.kl-script-card{background:var(--kl-surface);border:1px solid var(--kl-border);border-radius:var(--kl-radius-sm);padding:1.5rem;}
+.kl-pc-head{display:flex;align-items:baseline;gap:.75rem;flex-wrap:wrap;margin-bottom:.5rem;}
+.kl-pc-id,.kl-sc-id{font-family:var(--kl-font-mono);font-weight:700;color:var(--kl-accent-soft);font-size:.95rem;}
+.kl-pc-title{font-family:var(--kl-font-display);font-weight:600;font-size:1.15rem;margin:0;}
+.kl-pc-tags,.kl-sc-overlays{display:flex;gap:.5rem;flex-wrap:wrap;margin:.5rem 0 .75rem;}
+.kl-pc-body,.kl-sc-beats{font-family:var(--kl-font-mono);font-weight:500;font-size:.9rem;line-height:1.55;background:var(--kl-surface-2);border:1px solid var(--kl-border);border-radius:var(--kl-radius-sm);padding:1rem;white-space:pre-wrap;color:var(--kl-text);}
+.kl-var{color:var(--kl-spark);font-weight:700;}
+.kl-pc-tip{font-family:var(--kl-font-mono);font-size:.82rem;color:var(--kl-text-muted);margin-top:.75rem;}
+.kl-pc-tip b{color:var(--kl-spark);}
+.kl-sc-head{display:flex;align-items:center;gap:.75rem;margin-bottom:.75rem;}
+.kl-sc-hook{font-family:var(--kl-font-display);font-weight:600;font-size:1.4rem;line-height:1.15;margin:0 0 .75rem;background:var(--kl-nova-gradient);-webkit-background-clip:text;background-clip:text;color:transparent;}
+.kl-sc-cta{margin:.75rem 0;font-weight:500;}
+.kl-sc-visual{font-size:var(--kl-fs-small);color:var(--kl-text-muted);}
+
+.mark-row{display:flex;align-items:center;gap:2rem;flex-wrap:wrap;}
+.dont{color:#FF7A9C;} .do{color:var(--kl-volt);}
+.rule{font-family:var(--kl-font-mono);font-size:.9rem;line-height:1.9;}
+.rule .k{color:var(--kl-accent-soft);}
+header.top{padding:4rem 0 1rem;}
+footer{padding:3rem 0;border-top:1px solid var(--kl-border);color:var(--kl-text-muted);font-family:var(--kl-font-mono);font-size:.85rem;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="top">
+    <div class="mark-row">
+      <svg width="72" height="72" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Koken Labs mark"><defs><linearGradient id="m72" x1="20" y1="10" x2="82" y2="86" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#A24BFF"/><stop offset="1" stop-color="#FF53B1"/></linearGradient></defs><rect x="28" y="12" width="44" height="8" rx="4" fill="url(#m72)"/><path d="M 58.9 31.6 A 26 26 0 1 1 41.1 31.6" stroke="url(#m72)" stroke-width="9" stroke-linecap="round"/></svg>
+      <div>
+        <div class="eyebrow">Koken Labs · Design System v1.0</div>
+        <h1 style="margin-top:.5rem;">From chaos to <span class="grad-text">clarity</span>.</h1>
+        <p class="muted" style="max-width:40rem;">The single source of truth for every Koken asset. Tokens, type, components, and the product-doc parts that build the Kit and Vault. Talk like an engineer who closed the deal: direct, short sentences, numbers over adjectives.</p>
+      </div>
+    </div>
+  </header>
+
+  <!-- COLOR -->
+  <section class="block">
+    <div class="block-head"><div class="eyebrow">01 · Color</div><h2>Palette</h2>
+      <p class="muted">Obsidian is home. Nova gradient carries energy. Volt is the single spark — never more than ~5% of a layout.</p></div>
+    <div class="grid g4">
+      <div class="sw"><div class="chip" style="background:#0A0B0E;border-bottom:1px solid #262A33;"></div><div class="meta"><span class="name">Obsidian</span><span class="hex">#0A0B0E · bg</span></div></div>
+      <div class="sw"><div class="chip" style="background:#14161B;"></div><div class="meta"><span class="name">Carbon</span><span class="hex">#14161B · surface</span></div></div>
+      <div class="sw"><div class="chip" style="background:#191C23;"></div><div class="meta"><span class="name">Carbon-2</span><span class="hex">#191C23 · inset</span></div></div>
+      <div class="sw"><div class="chip" style="background:#262A33;"></div><div class="meta"><span class="name">Steel</span><span class="hex">#262A33 · border</span></div></div>
+      <div class="sw"><div class="chip" style="background:#A24BFF;"></div><div class="meta"><span class="name">Nova Violet</span><span class="hex">#A24BFF · accent</span></div></div>
+      <div class="sw"><div class="chip" style="background:#FF53B1;"></div><div class="meta"><span class="name">Nova Pink</span><span class="hex">#FF53B1 · grad end</span></div></div>
+      <div class="sw"><div class="chip" style="background:linear-gradient(120deg,#A24BFF,#FF53B1);"></div><div class="meta"><span class="name">Nova Gradient</span><span class="hex">120° · hero</span></div></div>
+      <div class="sw"><div class="chip" style="background:#C8FA4B;"></div><div class="meta"><span class="name">Volt</span><span class="hex">#C8FA4B · spark ≤5%</span></div></div>
+      <div class="sw"><div class="chip" style="background:#F4F6FA;"></div><div class="meta"><span class="name">Cloud</span><span class="hex">#F4F6FA · text</span></div></div>
+      <div class="sw"><div class="chip" style="background:#99A2B2;"></div><div class="meta"><span class="name">Mist</span><span class="hex">#99A2B2 · muted</span></div></div>
+    </div>
+  </section>
+
+  <!-- TYPE -->
+  <section class="block">
+    <div class="block-head"><div class="eyebrow">02 · Type</div><h2>Typography</h2>
+      <p class="muted">Space Grotesk display · Inter body · JetBrains Mono labels &amp; code. All free/open-source.</p></div>
+    <div class="grid g2">
+      <div class="kl-card">
+        <span class="kl-card-tag">Space Grotesk · display 600</span>
+        <div style="font-family:var(--kl-font-display);font-weight:600;font-size:2.6rem;letter-spacing:-.015em;line-height:1.1;">Ship AI in weeks,<br>not quarters.</div>
+      </div>
+      <div class="kl-card">
+        <span class="kl-card-tag">Inter · body 400/600</span>
+        <p style="margin:0;">Body copy is Inter at 1.06rem, line-height 1.65. <strong>Bold is for the number that matters</strong> — not for hype. Keep sentences short. Back every claim with a specific.</p>
+      </div>
+      <div class="kl-card">
+        <span class="kl-card-tag">JetBrains Mono · labels 500/700</span>
+        <div style="font-family:var(--kl-font-mono);letter-spacing:.12em;text-transform:uppercase;font-size:.85rem;color:var(--kl-accent-soft);">USE&nbsp;CASE&nbsp;·&nbsp;BEST&nbsp;MODEL&nbsp;·&nbsp;~2&nbsp;HRS</div>
+        <div style="font-family:var(--kl-font-mono);font-size:.9rem;margin-top:.75rem;color:var(--kl-text);">01-07 &nbsp;|&nbsp; [YOUR NICHE]</div>
+      </div>
+      <div class="kl-card">
+        <span class="kl-card-tag">Scale</span>
+        <div class="grad-text" style="font-family:var(--kl-font-display);font-weight:600;font-size:3rem;line-height:1;">Aa</div>
+        <p class="muted" style="margin:.5rem 0 0;font-family:var(--kl-font-mono);font-size:.82rem;">display / h2 / h3 / lede / body / label — fluid clamp()</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPONENTS -->
+  <section class="block">
+    <div class="block-head"><div class="eyebrow">03 · Components</div><h2>Core UI</h2></div>
+    <div class="grid g2" style="align-items:start;">
+      <div class="kl-card">
+        <span class="kl-card-tag">Buttons</span>
+        <div style="display:flex;gap:1rem;flex-wrap:wrap;align-items:center;">
+          <a class="kl-btn kl-btn-primary">Get the Kit — $37 →</a>
+          <a class="kl-btn kl-btn-ghost">See what's inside</a>
+        </div>
+        <p class="muted" style="margin:1rem 0 0;font-size:.9rem;">Primary CTA is always the Nova gradient. One primary per screen.</p>
+      </div>
+      <div class="kl-card">
+        <span class="kl-card-tag">Labels &amp; chips</span>
+        <div style="display:flex;gap:.5rem;flex-wrap:wrap;">
+          <span class="kl-label">Use case</span>
+          <span class="kl-label">Best model · Claude</span>
+          <span class="kl-label">~45 min</span>
+          <span class="kl-chip-volt">$37</span>
+        </div>
+        <p class="muted" style="margin:1rem 0 0;font-size:.9rem;">Volt chip = the one spark. Everything else is Steel-bordered mono.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCT DOC -->
+  <section class="block">
+    <div class="block-head"><div class="eyebrow">04 · Product-doc parts</div><h2>The pieces that build the Kit &amp; Vault</h2>
+      <p class="muted">Category divider, prompt card (Kit), and script card (Vault). Reference these by name in Claude Design.</p></div>
+
+    <div class="grid g2" style="align-items:start;">
+      <div class="kl-doc-page">
+        <div class="eyebrow" style="margin-bottom:.5rem;">Category divider</div>
+        <div class="kl-doc-num">04</div>
+        <div class="kl-doc-cat">Short-Form Social Content</div>
+        <div class="kl-doc-promise">Content that ships daily without you.</div>
+      </div>
+
+      <div class="kl-doc-page">
+        <div class="eyebrow" style="margin-bottom:1rem;">Cover</div>
+        <svg width="48" height="48" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Koken Labs mark"><defs><linearGradient id="m48" x1="20" y1="10" x2="82" y2="86" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#A24BFF"/><stop offset="1" stop-color="#FF53B1"/></linearGradient></defs><rect x="28" y="12" width="44" height="8" rx="4" fill="url(#m48)"/><path d="M 58.9 31.6 A 26 26 0 1 1 41.1 31.6" stroke="url(#m48)" stroke-width="9" stroke-linecap="round"/></svg>
+        <div style="font-family:var(--kl-font-display);font-weight:600;font-size:2.4rem;line-height:1.02;letter-spacing:-.015em;margin:1rem 0 .5rem;">THE AI <span class="grad-text">OPERATOR'S</span> KIT</div>
+        <p class="muted" style="margin:0;">300 copy-paste prompts that run a one-person business.</p>
+        <div style="font-family:var(--kl-font-mono);font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--kl-text-muted);margin-top:1.5rem;">20 categories · 300 prompts · Koken Labs</div>
+      </div>
+    </div>
+
+    <div style="margin-top:1.25rem;" class="kl-prompt-card">
+      <div class="eyebrow" style="margin-bottom:.75rem;">Prompt card · The AI Operator's Kit</div>
+      <div class="kl-pc-head">
+        <span class="kl-pc-id">01-01</span>
+        <h3 class="kl-pc-title">Book calls from cold email</h3>
+      </div>
+      <div class="kl-pc-tags"><span class="kl-label">Use case · first outreach</span><span class="kl-label">Best model · ChatGPT</span><span class="kl-label">~45 min</span></div>
+      <div class="kl-pc-body">You are a B2B outreach strategist. My service: <span class="kl-var">[WHAT YOU SELL]</span>. Target: <span class="kl-var">[TARGET CLIENT]</span>. Their likely pain: <span class="kl-var">[ONE PAIN]</span>. Write a 3-sentence cold email: their problem first, one specific result you got someone else, one question they can answer from their phone. No intro about me. Return 3 variants under 90 words each.</div>
+      <div class="kl-pc-tip"><b>PRO TIP:</b> Never pitch price in email one. You're buying a reply, not the sale.</div>
+    </div>
+
+    <div style="margin-top:1.25rem;" class="kl-script-card">
+      <div class="eyebrow" style="margin-bottom:.75rem;">Script card · The Reels Script Vault</div>
+      <div class="kl-sc-head"><span class="kl-sc-id">V-001</span><span class="kl-label">~45s</span></div>
+      <div class="kl-sc-hook">"I booked 3 calls from 40 cold emails."</div>
+      <div class="kl-sc-beats">Paste the prospect's homepage into ChatGPT. / Ask: "What's one problem this business likely has that my service solves?" Use that as your first line. / Structure it: their problem, one specific result, one question. Three sentences. / Never pitch price in email one.</div>
+      <div class="kl-sc-cta">Full outreach system's in my bio if you want the shortcut: <span class="grad-text" style="font-weight:600;">[YOUR OFFER]</span>.</div>
+      <div class="kl-sc-overlays"><span class="kl-label">40 emails, 3 calls</span><span class="kl-label">Paste their homepage</span><span class="kl-label">3 sentences max</span></div>
+      <div class="kl-sc-visual">Visual: screen-record pasting a homepage URL into ChatGPT; cut to the drafted three-line email.</div>
+    </div>
+  </section>
+
+  <!-- MARK RULES -->
+  <section class="block">
+    <div class="block-head"><div class="eyebrow">05 · The ō mark</div><h2>Logo rules</h2></div>
+    <div class="grid g2" style="align-items:center;">
+      <div class="kl-card" style="display:grid;place-items:center;padding:3rem;">
+        <svg width="120" height="120" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Koken Labs ō mark"><defs><linearGradient id="m120" x1="20" y1="10" x2="82" y2="86" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#A24BFF"/><stop offset="1" stop-color="#FF53B1"/></linearGradient></defs><rect x="28" y="12" width="44" height="8" rx="4" fill="url(#m120)"/><path d="M 58.9 31.6 A 26 26 0 1 1 41.1 31.6" stroke="url(#m120)" stroke-width="9" stroke-linecap="round"/></svg>
+      </div>
+      <div class="rule">
+        <p><span class="do">DO</span> &nbsp;render in the Nova gradient · default to the dark presentation · keep clear space = height of the ō · monogram only below 32px.</p>
+        <p><span class="dont">DON'T</span> &nbsp;recolor outside the gradient · add glows / bevels / shadows · stretch, rotate, or close the ring gap · place on a busy photo without a dark scrim.</p>
+        <p class="muted">The open ring is the whole idea — chaos with one clean gap. Never close it.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    Koken Labs — Design System v1.0 · tokens.css + components.css are canonical · regenerate this reference if tokens change · From chaos to clarity.
+  </footer>
+
+</div>
+</body>
+</html>

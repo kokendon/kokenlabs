@@ -1,0 +1,87 @@
+/* ==========================================================================
+   KOKEN LABS — DESIGN TOKENS  ·  v1.0  ·  dark-first
+   "From chaos to clarity."
+   Single source of truth for color, type, space, radius, elevation.
+   Consumed by Claude Design via /design-sync. Do not hard-code hex or px
+   in components — reference these variables only.
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap');
+
+:root {
+  /* ---- Color · core ---------------------------------------------------- */
+  --kl-obsidian:   #0A0B0E;   /* page background (brand home) */
+  --kl-carbon:     #14161B;   /* surfaces / cards */
+  --kl-carbon-2:   #191C23;   /* raised surface / inset panels */
+  --kl-steel:      #262A33;   /* borders / dividers */
+
+  --kl-cloud:      #F4F6FA;   /* primary text on dark */
+  --kl-mist:       #99A2B2;   /* muted / secondary text */
+
+  /* ---- Color · brand --------------------------------------------------- */
+  --kl-nova-violet: #A24BFF;  /* accent, links, gradient start */
+  --kl-nova-pink:   #FF53B1;  /* gradient end */
+  --kl-volt:        #C8FA4B;  /* ONE spark per layout, <=5% of surface */
+
+  --kl-nova-gradient: linear-gradient(120deg, var(--kl-nova-violet), var(--kl-nova-pink));
+
+  /* Semantic aliases (use these in components) */
+  --kl-bg:          var(--kl-obsidian);
+  --kl-surface:     var(--kl-carbon);
+  --kl-surface-2:   var(--kl-carbon-2);
+  --kl-border:      var(--kl-steel);
+  --kl-text:        var(--kl-cloud);
+  --kl-text-muted:  var(--kl-mist);
+  --kl-accent:      var(--kl-nova-violet);
+  --kl-accent-soft: #B673FF;  /* lighter violet for small labels on dark */
+  --kl-spark:       var(--kl-volt);
+
+  /* ---- Typography ------------------------------------------------------ */
+  --kl-font-display: "Space Grotesk", "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --kl-font-body:    "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --kl-font-mono:    "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+  /* Display uses 500/600; body 400/500/600; mono 500/700 (labels/code). */
+  --kl-weight-body:      400;
+  --kl-weight-medium:    500;
+  --kl-weight-semibold:  600;
+  --kl-weight-mono:      500;
+  --kl-weight-mono-bold: 700;
+
+  /* Fluid type scale */
+  --kl-fs-display: clamp(2.4rem, 6vw, 3.9rem);   /* h1 / hero */
+  --kl-fs-h2:      clamp(1.75rem, 4vw, 2.5rem);
+  --kl-fs-h3:      clamp(1.2rem, 2.5vw, 1.5rem);
+  --kl-fs-lede:    clamp(1.1rem, 2vw, 1.3rem);
+  --kl-fs-body:    1.0625rem;
+  --kl-fs-small:   0.95rem;
+  --kl-fs-label:   0.78rem;   /* mono labels, uppercase, letter-spaced */
+
+  --kl-lh-tight: 1.15;
+  --kl-lh-body:  1.65;
+  --kl-tracking-display: -0.015em;
+  --kl-tracking-label:    0.12em;
+
+  /* ---- Space scale (4pt base) ----------------------------------------- */
+  --kl-space-1: 0.25rem;
+  --kl-space-2: 0.5rem;
+  --kl-space-3: 0.75rem;
+  --kl-space-4: 1rem;
+  --kl-space-5: 1.5rem;
+  --kl-space-6: 2rem;
+  --kl-space-7: 3rem;
+  --kl-space-8: 4rem;
+
+  /* ---- Radius ---------------------------------------------------------- */
+  --kl-radius:    1.25rem;
+  --kl-radius-sm: 0.75rem;
+  --kl-radius-pill: 999px;
+
+  /* ---- Elevation (brand rule: NO glows/bevels on the mark; soft only) -- */
+  --kl-shadow-primary: 0 6px 24px rgba(162, 75, 255, .35);
+  --kl-shadow-primary-hover: 0 10px 32px rgba(255, 83, 177, .45);
+
+  /* ---- Layout ---------------------------------------------------------- */
+  --kl-max-w:  72rem;
+  --kl-header-h: 5rem;
+}

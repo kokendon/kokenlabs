@@ -1,0 +1,219 @@
+/* ==========================================================================
+   KOKEN LABS — COMPONENT LIBRARY  ·  v1.0
+   Depends on tokens.css. Reference --kl-* variables only; no raw hex/px.
+   Sections:
+     1. Base / primitives (text, gradient text, eyebrow, label chip)
+     2. Buttons
+     3. Cards + chips/tags
+     4. Product-doc components (cover, category divider, prompt card, script card)
+   ========================================================================== */
+
+/* ---- 1. Base / primitives ------------------------------------------------ */
+.kl-body {
+  background: var(--kl-bg);
+  color: var(--kl-text);
+  font-family: var(--kl-font-body);
+  font-size: var(--kl-fs-body);
+  line-height: var(--kl-lh-body);
+  -webkit-font-smoothing: antialiased;
+}
+.kl-h1, .kl-h2, .kl-h3 {
+  font-family: var(--kl-font-display);
+  font-weight: var(--kl-weight-semibold);
+  line-height: var(--kl-lh-tight);
+  letter-spacing: var(--kl-tracking-display);
+  margin: 0 0 var(--kl-space-4);
+  color: var(--kl-text);
+}
+.kl-h1 { font-size: var(--kl-fs-display); }
+.kl-h2 { font-size: var(--kl-fs-h2); }
+.kl-h3 { font-size: var(--kl-fs-h3); }
+.kl-lede  { font-size: var(--kl-fs-lede); color: var(--kl-text-muted); max-width: 44rem; }
+.kl-muted { color: var(--kl-text-muted); }
+
+/* Nova gradient text — for hero words, big numbers, key phrases */
+.kl-grad-text {
+  background: var(--kl-nova-gradient);
+  -webkit-background-clip: text; background-clip: text;
+  color: transparent;
+}
+
+/* Eyebrow — mono, uppercase, with a gradient dot */
+.kl-eyebrow {
+  font-family: var(--kl-font-mono);
+  font-weight: var(--kl-weight-mono-bold);
+  font-size: var(--kl-fs-label);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--kl-accent-soft);
+  display: inline-flex; align-items: center; gap: var(--kl-space-2);
+}
+.kl-eyebrow::before {
+  content: ""; width: .5rem; height: .5rem; border-radius: 50%;
+  background: var(--kl-nova-gradient);
+}
+
+/* Mono label chip — for metadata tags (USE CASE, BEST MODEL, LENGTH) */
+.kl-label {
+  font-family: var(--kl-font-mono);
+  font-weight: var(--kl-weight-mono);
+  font-size: var(--kl-fs-label);
+  letter-spacing: var(--kl-tracking-label);
+  text-transform: uppercase;
+  color: var(--kl-text-muted);
+  border: 1px solid var(--kl-border);
+  border-radius: var(--kl-radius-sm);
+  padding: .2rem .6rem;
+  display: inline-flex; align-items: center; gap: .4rem;
+  white-space: nowrap;
+}
+/* Volt spark chip — reserve for ONE element per layout */
+.kl-chip-volt {
+  font-family: var(--kl-font-mono);
+  font-weight: var(--kl-weight-mono-bold);
+  font-size: var(--kl-fs-label);
+  letter-spacing: var(--kl-tracking-label);
+  text-transform: uppercase;
+  color: var(--kl-obsidian);
+  background: var(--kl-spark);
+  border-radius: var(--kl-radius-sm);
+  padding: .2rem .6rem;
+  display: inline-flex; align-items: center;
+}
+
+/* Hairline / divider */
+.kl-hr { height: 1px; border: 0; background: var(--kl-border); margin: var(--kl-space-5) 0; }
+
+/* ---- 2. Buttons ---------------------------------------------------------- */
+.kl-btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: var(--kl-space-2);
+  font-family: var(--kl-font-display); font-weight: var(--kl-weight-semibold); font-size: 1rem;
+  padding: .85rem 1.6rem; border-radius: var(--kl-radius-pill);
+  border: 1px solid transparent; cursor: pointer; text-decoration: none;
+  transition: transform .18s ease, box-shadow .18s ease, background-color .18s ease, border-color .18s ease;
+}
+.kl-btn:hover { transform: translateY(-2px); }
+.kl-btn-primary {          /* primary CTA — always the Nova gradient */
+  background: var(--kl-nova-gradient); color: var(--kl-obsidian);
+  box-shadow: var(--kl-shadow-primary);
+}
+.kl-btn-primary:hover { box-shadow: var(--kl-shadow-primary-hover); }
+.kl-btn-ghost {
+  background: transparent; color: var(--kl-text); border-color: var(--kl-border);
+}
+.kl-btn-ghost:hover { border-color: var(--kl-accent); background: rgba(162,75,255,.08); }
+.kl-btn-lg { padding: 1.05rem 2.1rem; font-size: 1.1rem; }
+
+/* ---- 3. Cards + grid ----------------------------------------------------- */
+.kl-card {
+  background: var(--kl-surface);
+  border: 1px solid var(--kl-border);
+  border-radius: var(--kl-radius);
+  padding: var(--kl-space-5);
+  transition: transform .2s ease, border-color .2s ease;
+}
+.kl-card:hover { transform: translateY(-4px); border-color: rgba(162,75,255,.55); }
+.kl-card-tag {
+  font-family: var(--kl-font-mono); font-weight: var(--kl-weight-mono);
+  font-size: var(--kl-fs-label); letter-spacing: .1em; text-transform: uppercase;
+  color: var(--kl-accent-soft); display: block; margin-bottom: var(--kl-space-3);
+}
+
+/* ---- 4. Product-doc components ------------------------------------------- */
+/* These build the Kit / Vault PDFs and any Koken info-product page.          */
+/* Page frame: 8.5x11 portrait feel, always on Obsidian.                      */
+.kl-doc-page {
+  background: var(--kl-bg); color: var(--kl-text);
+  font-family: var(--kl-font-body);
+  padding: var(--kl-space-7);
+  border: 1px solid var(--kl-border);
+  border-radius: var(--kl-radius-sm);
+}
+
+/* COVER */
+.kl-doc-cover { text-align: left; }
+.kl-doc-cover .kl-doc-title {
+  font-family: var(--kl-font-display); font-weight: var(--kl-weight-semibold);
+  font-size: clamp(2.6rem, 6vw, 4.2rem); line-height: 1.02;
+  letter-spacing: var(--kl-tracking-display); margin: var(--kl-space-6) 0 var(--kl-space-4);
+}
+.kl-doc-cover .kl-doc-sub { font-size: var(--kl-fs-lede); color: var(--kl-text-muted); max-width: 34rem; }
+.kl-doc-cover .kl-doc-meta {
+  font-family: var(--kl-font-mono); font-weight: var(--kl-weight-mono);
+  font-size: var(--kl-fs-label); letter-spacing: var(--kl-tracking-label);
+  text-transform: uppercase; color: var(--kl-text-muted); margin-top: var(--kl-space-6);
+}
+
+/* CATEGORY DIVIDER — oversized gradient number + promise line */
+.kl-doc-divider { padding: var(--kl-space-7); }
+.kl-doc-divider .kl-doc-num {
+  font-family: var(--kl-font-mono); font-weight: var(--kl-weight-mono-bold);
+  font-size: clamp(5rem, 18vw, 11rem); line-height: .9;
+  background: var(--kl-nova-gradient); -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.kl-doc-divider .kl-doc-cat {
+  font-family: var(--kl-font-display); font-weight: var(--kl-weight-semibold);
+  font-size: var(--kl-fs-h2); margin: var(--kl-space-3) 0 var(--kl-space-2);
+}
+.kl-doc-divider .kl-doc-promise { font-size: var(--kl-fs-lede); color: var(--kl-text-muted); }
+
+/* PROMPT CARD — used by The AI Operator's Kit */
+.kl-prompt-card {
+  background: var(--kl-surface); border: 1px solid var(--kl-border);
+  border-radius: var(--kl-radius-sm); padding: var(--kl-space-5); margin-bottom: var(--kl-space-4);
+}
+.kl-prompt-card .kl-pc-head {
+  display: flex; align-items: baseline; gap: var(--kl-space-3); flex-wrap: wrap; margin-bottom: var(--kl-space-2);
+}
+.kl-prompt-card .kl-pc-id {
+  font-family: var(--kl-font-mono); font-weight: var(--kl-weight-mono-bold);
+  color: var(--kl-accent-soft); font-size: var(--kl-fs-small);
+}
+.kl-prompt-card .kl-pc-title {
+  font-family: var(--kl-font-display); font-weight: var(--kl-weight-semibold); font-size: 1.15rem; margin: 0;
+}
+.kl-prompt-card .kl-pc-tags { display: flex; gap: var(--kl-space-2); flex-wrap: wrap; margin: var(--kl-space-2) 0 var(--kl-space-3); }
+/* The prompt body — mono block on inset panel. Variables get .kl-var. */
+.kl-prompt-card .kl-pc-body {
+  font-family: var(--kl-font-mono); font-weight: var(--kl-weight-mono);
+  font-size: .92rem; line-height: 1.55;
+  background: var(--kl-surface-2); border: 1px solid var(--kl-border);
+  border-radius: var(--kl-radius-sm); padding: var(--kl-space-4);
+  white-space: pre-wrap; color: var(--kl-text);
+}
+.kl-var { color: var(--kl-spark); font-weight: var(--kl-weight-mono-bold); } /* [FILL-IN VARIABLES] in Volt */
+.kl-prompt-card .kl-pc-tip {
+  font-family: var(--kl-font-mono); font-size: .82rem; color: var(--kl-text-muted); margin-top: var(--kl-space-3);
+}
+.kl-prompt-card .kl-pc-tip b { color: var(--kl-spark); font-weight: var(--kl-weight-mono-bold); }
+
+/* SCRIPT CARD — used by The Reels Script Vault */
+.kl-script-card {
+  background: var(--kl-surface); border: 1px solid var(--kl-border);
+  border-radius: var(--kl-radius-sm); padding: var(--kl-space-5); margin-bottom: var(--kl-space-4);
+}
+.kl-script-card .kl-sc-head { display: flex; align-items: center; gap: var(--kl-space-3); margin-bottom: var(--kl-space-3); }
+.kl-script-card .kl-sc-id {
+  font-family: var(--kl-font-mono); font-weight: var(--kl-weight-mono-bold);
+  color: var(--kl-accent-soft); font-size: var(--kl-fs-small);
+}
+.kl-script-card .kl-sc-hook {
+  font-family: var(--kl-font-display); font-weight: var(--kl-weight-semibold);
+  font-size: 1.4rem; line-height: 1.15; margin: 0 0 var(--kl-space-3);
+  background: var(--kl-nova-gradient); -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.kl-script-card .kl-sc-beats {
+  font-family: var(--kl-font-mono); font-weight: var(--kl-weight-mono);
+  font-size: .9rem; line-height: 1.6;
+  background: var(--kl-surface-2); border: 1px solid var(--kl-border);
+  border-radius: var(--kl-radius-sm); padding: var(--kl-space-4); color: var(--kl-text);
+  white-space: pre-wrap;
+}
+.kl-script-card .kl-sc-cta { margin: var(--kl-space-3) 0; font-weight: var(--kl-weight-medium); }
+.kl-script-card .kl-sc-overlays { display: flex; gap: var(--kl-space-2); flex-wrap: wrap; margin-bottom: var(--kl-space-2); }
+.kl-script-card .kl-sc-visual { font-size: var(--kl-fs-small); color: var(--kl-text-muted); }
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .kl-btn, .kl-card { transition: none; }
+}
