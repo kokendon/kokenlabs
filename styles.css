@@ -430,3 +430,54 @@ input:focus, textarea:focus, select:focus {
   .hero-ctas .btn { width: 100%; }
   .footer-grid { grid-template-columns: 1fr; }
 }
+
+/* ---------- Legal / compliance (added 2026-07-17) ---------- */
+.footer-legal {
+  display: flex; flex-wrap: wrap; gap: .35rem 1rem; align-items: center;
+}
+.footer-legal a { color: var(--mist); }
+.footer-legal a:hover { color: var(--cloud); }
+
+/* SMS/consent checkbox on forms */
+.consent-check {
+  display: flex; gap: .7rem; align-items: flex-start;
+  font-weight: 400; font-size: .85rem; line-height: 1.5;
+  color: var(--mist); margin: 0;
+}
+.consent-check input[type="checkbox"] {
+  width: 1.15rem; height: 1.15rem; flex: none; margin-top: .15rem;
+  accent-color: var(--nova-violet); cursor: pointer;
+}
+.consent-check span { display: block; }
+.consent-check a { color: #B673FF; }
+
+/* Opt-in demo block (sms-opt-in.html evidence page) */
+.optin-demo {
+  background: var(--carbon); border: 1px solid var(--steel);
+  border-radius: var(--radius-sm); padding: 1.5rem; margin: 1.5rem 0 2rem;
+  display: grid; gap: 1rem;
+}
+.optin-field { font-weight: 600; font-size: .95rem; display: block; }
+.optin-field input {
+  margin-top: .4rem; width: 100%; padding: .8rem 1rem;
+  background: var(--carbon-2); color: var(--mist);
+  border: 1px solid var(--steel); border-radius: var(--radius-sm); font: inherit;
+}
+.optin-consent {
+  display: flex; gap: .7rem; align-items: flex-start;
+  font-size: .85rem; line-height: 1.5; color: var(--mist); font-weight: 400;
+}
+.optin-consent input[type="checkbox"] {
+  width: 1.15rem; height: 1.15rem; flex: none; margin-top: .15rem;
+  accent-color: var(--nova-violet);
+}
+.optin-consent a { color: #B673FF; }
+
+/* Sample SMS bubbles */
+.sms-samples { display: grid; gap: .85rem; margin: 1.25rem 0 2rem; max-width: 40rem; }
+.sms-bubble {
+  background: var(--carbon-2); border: 1px solid var(--steel);
+  border-left: 3px solid var(--nova-violet);
+  border-radius: var(--radius-sm); padding: .9rem 1.15rem;
+  font-size: .95rem; color: var(--cloud); margin: 0;
+}
