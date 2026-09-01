@@ -1,21 +1,30 @@
 # Koken Labs — website (kokendon/kokenlabs)
 
-Static multi-page marketing site, no build step. Repo root = this folder; entry `index.html`
+> ## ⚠️ ORPHANED — this repo does not deploy
+> **kokenlabs.ai is served from `website-v2/` on Cloudflare Workers, not from here.** The domain
+> moved 2026-08-24 and the Vercel project is **paused**. Pushing to `main` commits source and
+> publishes nothing. Do not wait for, or verify, a deployment.
+> To change the live site, work in `Koken Labs/website-v2/` and deploy with `npx wrangler`.
+
+Former static marketing site, no build step. Repo root = this folder; entry `index.html`
 (pages: index / services / about / learn / contact + styles.css, site.js, hero-fx.js, assets/,
 sitemap.xml, robots.txt, vercel.json). Brand voice: "From chaos to clarity" — plain-English,
-reassurance-first, anti-hype. **Full deploy runbook + history lives in `DEPLOY.md` — read it first.**
+reassurance-first, anti-hype. **See `DEPLOY.md` for current status and what this repo is still for.**
 
-## Deploy
-- **Production branch is `main` (NOT `master`).** Push to `main` → Vercel auto-deploys to
-  kokenlabs.ai. Pushes to `master` only create throwaway preview deploys that never reach the domain.
-- **Required commit-author email: `tarwaterdon@gmail.com`** (matches the connected GitHub identity;
-  other authors can get deploys blocked). Commit like:
+## What is still live here
+`design-system/` is the source of truth for the Claude Design project
+`7deb0bf7-b605-4482-8c70-347001a41a09` via `/design-sync` (see `.design-sync/NOTES.md`).
+Edit and commit it normally — just don't expect a website deploy.
+
+## Committing (no deploy)
+- Branch: `main`. `git push origin main` — source control only, nothing goes live.
+- **Required commit-author email: `tarwaterdon@gmail.com`** (matches the connected GitHub
+  identity). Commit like:
   `git -c user.email=tarwaterdon@gmail.com -c user.name="Koken Labs" commit -m "..."`
-- Vercel project `kokenlabs` (`prj_OKmBlc0EexO2UrOb6ZNZgfEs9xJi`), team `kokendons-projects`
-  (`team_87GnWfgdmmckj2kizcq8qS3I`). After pushing, confirm the new deployment reaches
-  `READY` / target `production` (Vercel dashboard or MCP `list_deployments`) matching your commit SHA.
-- If Vercel silently misses a push, an empty commit `git commit --allow-empty -m "Trigger deploy"`
-  nudges the webhook.
+- **Skip every Vercel step.** The project (`prj_OKmBlc0EexO2UrOb6ZNZgfEs9xJi`, team
+  `team_87GnWfgdmmckj2kizcq8qS3I`) is paused, so `list_deployments` will not show your commit
+  and the empty-commit "nudge the webhook" trick has nothing to nudge. Pre-cutover procedure is
+  archived in `DEPLOY.md`.
 
 ## Pushing to this repo — environment matters
 - **Claude Code session scoped to `kokendon/kokenlabs`: push is native.** The Claude GitHub app has
@@ -32,6 +41,6 @@ Clean short paths that 307-redirect to the homepage carrying a `utm_source`, so 
 `kokenlabs.ai/linkedin` instead of a raw `?utm_...` string (identical attribution). Paths:
 `/linkedin`, `/linkedin-don`, `/linkedin-steve`, `/x`, `/x-don`, `/x-steve`, `/youtube`, `/instagram`,
 `/tiktok`, `/threads`, `/bluesky`, `/facebook`, `/github` (all `utm_medium=social`), and `/newsletter`
-(`utm_medium=email`); all `utm_campaign=launch`. To add a platform: add a `{source,destination}` entry
-to the `redirects` array and push to `main`. Canonical list also mirrored in the Koken Labs project
+(`utm_medium=email`); all `utm_campaign=launch`. ⚠️ These shipped with the Vercel deploy — **verify where they resolve now**
+before relying on them; editing `redirects` here no longer changes anything live. Canonical list also mirrored in the Koken Labs project
 folder at `social/utm-links.md`.
