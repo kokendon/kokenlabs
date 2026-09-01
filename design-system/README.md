@@ -32,7 +32,7 @@ Upload `design-system.html` (or paste its contents) at the **start** of a Claude
 
 ## Token quick-reference
 - **Backgrounds:** Obsidian `#0A0B0E` (page) · Carbon `#14161B` (surface) · Carbon-2 `#191C23` (inset) · Steel `#262A33` (border)
-- **Brand:** Nova gradient `#A24BFF → #FF53B1` @ 120° (hero) · Volt `#C8FA4B` (one spark, ≤5%)
+- **Brand:** Nova gradient `#A24BFF → #FF53B1` @ 120° (hero) · Volt `#C8FA4B` (exactly one spark per screen)
 - **Text:** Cloud `#F4F6FA` · Mist `#99A2B2` (muted)
 - **Type:** Space Grotesk (display 500/600) · Inter (body) · JetBrains Mono (labels/code)
 

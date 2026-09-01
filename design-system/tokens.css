@@ -1,5 +1,6 @@
 /* ==========================================================================
-   KOKEN LABS — DESIGN TOKENS  ·  v1.0  ·  dark-first
+   KOKEN LABS — DESIGN TOKENS  ·  v1.1  ·  dark-first
+   Aligned to brand guidelines v1.4 (2026-09-01).
    "From chaos to clarity."
    Single source of truth for color, type, space, radius, elevation.
    Consumed by Claude Design via /design-sync. Do not hard-code hex or px
@@ -21,7 +22,7 @@
   /* ---- Color · brand --------------------------------------------------- */
   --kl-nova-violet: #A24BFF;  /* accent, links, gradient start */
   --kl-nova-pink:   #FF53B1;  /* gradient end */
-  --kl-volt:        #C8FA4B;  /* ONE spark per layout, <=5% of surface */
+  --kl-volt:        #C8FA4B;  /* exactly ONE spark per screen (brand guidelines v1.4 §03) */
 
   --kl-nova-gradient: linear-gradient(120deg, var(--kl-nova-violet), var(--kl-nova-pink));
 
@@ -77,9 +78,17 @@
   --kl-radius-sm: 0.75rem;
   --kl-radius-pill: 999px;
 
-  /* ---- Elevation (brand rule: NO glows/bevels on the mark; soft only) -- */
-  --kl-shadow-primary: 0 6px 24px rgba(162, 75, 255, .35);
-  --kl-shadow-primary-hover: 0 10px 32px rgba(255, 83, 177, .45);
+  /* ---- Elevation -------------------------------------------------------
+     NEUTRAL and DIRECTIONAL only. Colored blur-glow is banned brand-wide
+     (brand guidelines v1.4 §02 "Shadows & glow") — it applies to buttons and
+     every other surface, not just the logomark.
+     These two tokens previously held a violet/pink blur-glow and are consumed
+     by .kl-btn-primary in components.css, so every design built on that class
+     rendered a banned glow. Values corrected 2026-09-01; names kept so nothing
+     downstream breaks. Do not put a color back in here.
+     ---------------------------------------------------------------------- */
+  --kl-shadow-primary:       0 6px 20px rgba(0, 0, 0, .45);
+  --kl-shadow-primary-hover: 0 10px 28px rgba(0, 0, 0, .55);
 
   /* ---- Layout ---------------------------------------------------------- */
   --kl-max-w:  72rem;

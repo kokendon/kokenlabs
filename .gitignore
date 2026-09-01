@@ -4,3 +4,10 @@ node_modules
 *.log
 .env.local
 .env
+
+# design-sync build artifact (regenerable from design-system/ — see .design-sync/BUNDLE-READY.md)
+.design-sync/bundle/
+
+# local pre-change safety copies
+*.prev-v1.0.bak.*
+*.prev-viewbox.bak.*
