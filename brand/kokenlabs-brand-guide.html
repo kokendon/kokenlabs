@@ -1,0 +1,428 @@
+<title>Koken Labs Brand Guide</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;700&display=swap">
+<style>
+/* Layout: Obsidian hero band with the live logo, sticky section tabs, then one 1080px column per section. Dark-first, like kokenlabs.ai; Nova gradient used only where the brand uses it. */
+:root{
+  /* brand constants (never theme-swapped) */
+  --obsidian:#0A0B0E; --carbon:#14161B; --steel:#262A33;
+  --violet:#A24BFF; --pink:#FF53B1; --volt:#C8FA4B;
+  --cloud:#F4F6FA; --mist:#99A2B2; --deep-violet:#9A3DEB; --graphite:#5A6170;
+  --nova:linear-gradient(120deg,#A24BFF 0%,#FF53B1 100%);
+  /* page theme tokens: dark first */
+  --bg:#0A0B0E; --surface:#14161B; --line:#262A33; --chip:#1B1E25;
+  --fg:#F4F6FA; --muted:#99A2B2; --accent:#A24BFF; --tile-line:#262A33;
+  --display:"Space Grotesk",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
+  --body:"Inter",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  color-scheme:dark;
+}
+@media (prefers-color-scheme: light){:root:not([data-theme="dark"]){--bg:#F4F6FA;--surface:#FFFFFF;--line:#DDE1E8;--chip:#E9ECF2;--fg:#0A0B0E;--muted:#5A6170;--accent:#9A3DEB;--tile-line:#DDE1E8;color-scheme:light}}
+:root[data-theme="light"]{--bg:#F4F6FA;--surface:#FFFFFF;--line:#DDE1E8;--chip:#E9ECF2;--fg:#0A0B0E;--muted:#5A6170;--accent:#9A3DEB;--tile-line:#DDE1E8;color-scheme:light}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1080px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;line-height:1.12;font-weight:600}
+h2{font-size:clamp(28px,4vw,42px);letter-spacing:-.02em}
+h3{font-size:18px;letter-spacing:-.01em}
+p{margin:0;max-width:65ch}
+code{font-family:var(--mono);font-size:.92em}
+.label{font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.muted{color:var(--muted)}
+.grad{background:var(--nova);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+/* logo coloring: set on the outer svg, inherited into <use> */
+.logo{display:block;width:100%;height:auto;overflow:visible}
+.lg-dark{--lw:#F4F6FA;--ll:#A24BFF}
+.lg-light{--lw:#0A0B0E;--ll:#9A3DEB}
+.lg-white{--lw:#FFFFFF;--ll:#FFFFFF;--lo:#FFFFFF}
+.lg-black{--lw:#0A0B0E;--ll:#0A0B0E;--lo:#0A0B0E}
+.lg-adapt{--lw:var(--fg);--ll:var(--accent)}
+.mark{display:block;height:100%;width:auto}
+
+/* hero (always Obsidian, it is the brand ground) */
+.hero{background:var(--obsidian);color:var(--cloud);position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(closest-side at 22% 0%,rgba(162,75,255,.22),transparent 75%);pointer-events:none}
+.hero .wrap{position:relative;padding-block:clamp(56px,9vw,104px) clamp(36px,6vw,60px);display:grid;gap:28px}
+.hero .label{color:var(--mist);display:inline-flex;align-items:center;gap:10px;border:1px solid var(--steel);border-radius:999px;padding:6px 14px;justify-self:start}
+.hero .label i{width:7px;height:7px;border-radius:50%;background:var(--volt);box-shadow:0 0 10px var(--volt)}
+.hero .logo{max-width:620px}
+.hero p{color:#C3C9D4;font-size:18px}
+.hero .meta{display:flex;flex-wrap:wrap;gap:8px 28px;font-size:13px;color:var(--mist);border-top:1px solid var(--steel);padding-top:20px}
+.hero .meta b{color:var(--cloud);font-weight:600}
+
+nav.toc{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+nav.toc .wrap{display:flex;gap:4px;overflow-x:auto;padding-block:10px;scrollbar-width:none}
+nav.toc a{flex:none;font-size:13px;font-weight:500;color:var(--muted);text-decoration:none;padding:6px 12px;border-radius:999px}
+nav.toc a:hover,nav.toc a:focus-visible{color:var(--fg);background:var(--chip);outline:none}
+
+section{padding-block:clamp(56px,8vw,88px);border-bottom:1px solid var(--line)}
+section .head{display:grid;gap:12px;margin-bottom:36px}
+.sub{display:grid;gap:8px;margin:48px 0 20px}
+.grid{display:grid;gap:20px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr))}
+.g4{grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr))}
+figure{margin:0;min-width:0}
+.tile{border-radius:16px;padding:clamp(28px,5vw,48px);display:flex;align-items:center;justify-content:center;min-height:200px;position:relative}
+.tile.dark{background:var(--obsidian);border:1px solid var(--tile-line)}
+.tile.light{background:#FFFFFF;border:1px solid var(--tile-line)}
+.tile.cloud{background:var(--cloud);border:1px solid var(--tile-line)}
+.tile.nova{background:var(--nova)}
+.tile .logo{max-width:400px}
+.cap{display:flex;justify-content:space-between;gap:12px;font-size:13px;margin-top:10px;color:var(--muted)}
+.cap b{color:var(--fg);font-weight:600}
+.tag{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;padding:2px 8px;border-radius:999px;border:1px solid var(--line);color:var(--muted);white-space:nowrap}
+.tag.ok{color:var(--fg)}
+.tag.todo{border-color:var(--accent);color:var(--accent)}
+
+/* essence */
+.statement{font-family:var(--display);font-size:clamp(22px,3vw,30px);font-weight:500;line-height:1.35;max-width:36ch;margin-bottom:40px;letter-spacing:-.01em}
+.statement .dim{color:var(--muted)}
+.pillars{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));border-top:2px solid var(--fg)}
+.pillar{padding:22px 20px 22px 0;display:grid;gap:8px;align-content:start}
+.pillar span{font-family:var(--mono);font-size:12px;font-weight:500;color:var(--muted);letter-spacing:.08em;text-transform:uppercase}
+
+/* anatomy */
+.anatomy{background:var(--obsidian);border:1px solid var(--tile-line);border-radius:16px;padding:clamp(24px,5vw,56px);overflow-x:auto}
+.anatomy-inner{min-width:520px;max-width:720px;margin:0 auto}
+.callouts{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:28px;font-size:13px;color:#AEB5C2}
+.callouts div{border-top:2px solid var(--steel);padding-top:10px}
+.callouts div.o{border-image:var(--nova) 1}
+.callouts strong{display:block;color:var(--cloud);font-family:var(--display);font-weight:600;font-size:14px;margin-bottom:2px}
+
+/* usage */
+.col{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:24px;display:grid;gap:14px;align-content:start;min-width:0}
+.col h3{display:flex;gap:10px;align-items:center}
+.whitebox{background:#FFFFFF;border-radius:10px;padding:18px;border:1px solid var(--tile-line);color:#5A6170}
+.clear{position:relative;padding:11.4%;outline:1.5px dashed #9A3DEB;outline-offset:-1px;border-radius:4px}
+.clear::after{content:"";position:absolute;inset:11.4%;outline:1px solid rgba(154,61,235,.35)}
+.xbox{position:absolute;top:0;left:0;width:11.4%;aspect-ratio:1;background:rgba(162,75,255,.18);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:11px;font-weight:700;color:#7C2BD6}
+.sizes{display:flex;flex-wrap:wrap;align-items:flex-end;gap:28px}
+.sizes figure{display:grid;gap:8px;font-size:12px}
+.marks{display:flex;gap:20px;flex-wrap:wrap}
+.marks figure{flex:1 1 200px}
+.marks .tile{min-height:180px}
+.marks .mark{height:110px}
+.app{width:132px;aspect-ratio:1;max-width:100%;border-radius:30px;background:var(--obsidian);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 30px -10px rgba(162,75,255,.5)}
+.app .mark{height:60%}
+.dont .tile{min-height:150px;overflow:hidden}
+.dont .tile .logo{max-width:260px}
+.x{position:absolute;top:12px;right:12px;width:26px;height:26px;border-radius:50%;background:#D23A2A;color:#fff;font-size:15px;font-weight:700;display:flex;align-items:center;justify-content:center;z-index:1}
+.d1{transform:scaleX(1.35) scaleY(.8)}
+.d2{--lo:#2F6BFF}
+.d3{--lw:#A24BFF}
+.d4{filter:drop-shadow(0 0 14px #FF53B1) drop-shadow(5px 5px 0 #888)}
+
+/* color */
+.sw{border-radius:16px;overflow:hidden;border:1px solid var(--line);background:var(--surface);display:flex;flex-direction:column;min-width:0}
+.sw .chip{height:150px;display:flex;align-items:flex-end;padding:16px;font-family:var(--display);font-weight:600;font-size:20px}
+.sw .chip.sm{height:84px;font-size:15px}
+.sw .info{padding:16px;display:grid;gap:3px;font-size:13px;font-variant-numeric:tabular-nums}
+.sw .info b{font-size:15px;font-family:var(--display);font-weight:600}
+.sw .info code{color:var(--muted);font-size:12px}
+.sw .info .note{color:var(--muted);font-size:12px;margin-top:2px}
+.copy{justify-self:start;margin-top:8px;font:inherit;font-size:12px;font-weight:600;border:1px solid var(--line);background:var(--chip);color:var(--fg);border-radius:999px;padding:4px 12px;cursor:pointer}
+.copy:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.ratio{display:flex;height:46px;border-radius:10px;overflow:hidden;margin-top:28px;border:1px solid var(--line)}
+.ratio div{display:flex;align-items:center;padding-left:12px;font-size:12px;font-weight:600;white-space:nowrap;overflow:hidden}
+.pairs{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));margin-top:20px}
+.pair{border-radius:10px;padding:16px;font-weight:600;font-size:15px;display:flex;justify-content:space-between;gap:8px;align-items:center;font-family:var(--display)}
+.pair small{font-family:var(--mono);font-weight:500;font-size:11px;opacity:.85;text-align:right}
+
+/* type */
+.alpha{font-family:var(--display);font-size:clamp(40px,8vw,88px);font-weight:600;letter-spacing:-.03em;line-height:1;margin-bottom:12px}
+.faces{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));margin-bottom:36px}
+.face{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:22px;display:grid;gap:6px;min-width:0}
+.face .big{font-size:44px;line-height:1.1}
+.spec{border-top:1px solid var(--line)}
+.row{display:grid;grid-template-columns:170px minmax(0,1fr);gap:20px;padding:22px 0;border-bottom:1px solid var(--line);align-items:baseline}
+.row .lbl{font-size:12px;color:var(--muted);line-height:1.5}
+.row .lbl b{display:block;color:var(--fg);font-size:13px;font-family:var(--display)}
+@media (max-width:600px){.row{grid-template-columns:1fr;gap:6px}.callouts{grid-template-columns:repeat(2,1fr)}}
+.btn{display:inline-flex;align-items:center;gap:8px;font-family:var(--display);font-weight:600;font-size:15px;padding:12px 24px;border-radius:999px;background:var(--nova);color:#0A0B0E}
+
+/* voice */
+.traits{display:grid;gap:22px;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));margin-bottom:32px}
+.trait{display:grid;gap:7px}
+.trait b{font-family:var(--display);font-weight:600}
+.trait .scale{font-size:12px;color:var(--muted);display:flex;justify-content:space-between}
+.bar{height:6px;border-radius:3px;background:var(--line);position:relative}
+.bar i{position:absolute;top:-4px;width:14px;height:14px;border-radius:50%;background:var(--nova);border:2px solid var(--bg);transform:translateX(-50%)}
+.do-dont{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr))}
+.dot{width:10px;height:10px;border-radius:50%;flex:none}
+.say{font-size:15px;padding:12px 14px;border-radius:8px;background:var(--chip)}
+.say small{display:block;font-size:11px;color:var(--muted);font-family:var(--mono);letter-spacing:.04em;margin-top:4px}
+
+/* applications */
+.mock{border-radius:16px;overflow:hidden;border:1px solid var(--line);background:var(--surface);min-width:0;display:flex;flex-direction:column}
+.art{aspect-ratio:1;max-width:100%;background:var(--obsidian);color:var(--cloud);display:flex;flex-direction:column;justify-content:space-between;padding:8%;position:relative;overflow:hidden}
+.art::before{content:"";position:absolute;inset:0;background:radial-gradient(closest-side at 85% 100%,rgba(255,83,177,.18),transparent 70%);pointer-events:none}
+.art > *{position:relative}
+.art .t{font-family:var(--display);font-size:clamp(24px,3vw,32px);font-weight:600;line-height:1.08;letter-spacing:-.02em}
+.art .k{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--mist);display:flex;align-items:center;gap:8px}
+.art .k i{width:6px;height:6px;border-radius:50%;background:var(--volt);box-shadow:0 0 8px var(--volt)}
+.art .sig{display:flex;align-items:center;gap:10px;font-size:12px;color:var(--mist)}
+.art .sig svg{height:26px;width:auto}
+.art.og{aspect-ratio:1.91;background:var(--cloud);color:var(--obsidian);padding:6%}
+.art.og::before{background:radial-gradient(closest-side at 100% 0%,rgba(162,75,255,.16),transparent 70%)}
+.art.og .t{font-size:clamp(16px,1.8vw,20px);line-height:1.15}
+.art.og .k{color:var(--graphite)}
+.art.og .logo{width:38%}
+.art.biz{aspect-ratio:1.75;background:var(--carbon);padding:7%}
+.art.biz .logo{width:52%}
+.art.biz .who{font-family:var(--display);font-weight:600;font-size:15px}
+.art.biz .who small{display:block;font-family:var(--body);font-weight:400;color:var(--mist);font-size:12px}
+.art.biz .site{font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--mist)}
+.art.biz .stripe{position:absolute;left:0;right:0;bottom:0;height:4px;background:var(--nova)}
+.mock .info{padding:14px 16px;font-size:13px;color:var(--muted)}
+.mock .info b{color:var(--fg);display:block;font-size:14px;font-family:var(--display)}
+
+/* files */
+table{width:100%;border-collapse:collapse;font-size:14px}
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:16px;background:var(--surface)}
+th,td{text-align:left;padding:12px 16px;border-bottom:1px solid var(--line);white-space:nowrap}
+th{font-family:var(--mono);font-size:11px;font-weight:500;color:var(--muted);letter-spacing:.08em;text-transform:uppercase}
+tr:last-child td{border-bottom:0}
+.callout{margin-top:20px;border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:12px;padding:16px 18px;background:var(--surface);display:grid;gap:6px}
+.callout b{font-family:var(--display)}
+footer{padding-block:48px;font-size:13px;color:var(--muted)}
+footer .wrap{display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-between;align-items:center}
+footer .logo{width:150px}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+</style>
+
+<!-- Shared logo and mark geometry, copied from assets/kokenlabs-logo-*.svg and assets/kokenlabs-mark.svg -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <linearGradient id="nova" x1="74" y1="50" x2="118" y2="112" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#A24BFF"/><stop offset="1" stop-color="#FF53B1"/></linearGradient>
+    <linearGradient id="novaM" x1="20" y1="10" x2="82" y2="86" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#A24BFF"/><stop offset="1" stop-color="#FF53B1"/></linearGradient>
+    <g id="kl-logo">
+      <text x="65" y="112" text-anchor="end" font-family="'Space Grotesk',sans-serif" font-weight="600" font-size="86" letter-spacing="-2" style="fill:var(--lw)">k</text>
+      <rect x="77.5" y="51" width="37" height="7" rx="3.5" style="fill:var(--lo,url(#nova))"/>
+      <path d="M 103.5 67.3 A 22 22 0 1 1 88.5 67.3" fill="none" stroke-width="9" stroke-linecap="round" style="stroke:var(--lo,url(#nova))"/>
+      <text x="127" y="112" font-family="'Space Grotesk',sans-serif" font-weight="600" font-size="86" letter-spacing="-2" style="fill:var(--lw)">ken<tspan dx="22" dy="-2" font-family="'JetBrains Mono',monospace" font-weight="700" font-size="30" letter-spacing="2" style="fill:var(--ll)">LABS</tspan></text>
+    </g>
+    <g id="kl-mark">
+      <rect x="28" y="12" width="44" height="8" rx="4" style="fill:var(--lo,url(#novaM))"/>
+      <path d="M 58.9 31.6 A 26 26 0 1 1 41.1 31.6" fill="none" stroke-width="9" stroke-linecap="round" style="stroke:var(--lo,url(#novaM))"/>
+    </g>
+  </defs>
+</svg>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="label"><i></i>Brand guidelines · v1.0</div>
+    <svg class="logo lg-dark" viewBox="16 44 358 74" role="img" aria-label="Koken Labs"><use href="#kl-logo"/></svg>
+    <p>The visual and verbal identity for Koken Labs, the applied AI lab in the Koken family. This guide documents the system already live on kokenlabs.ai so every page, post, deck and proposal looks and sounds like the same company.</p>
+    <div class="meta"><span><b>Ground</b> Obsidian #0A0B0E</span><span><b>Signal</b> Nova gradient #A24BFF → #FF53B1</span><span><b>Type</b> Space Grotesk · Inter · JetBrains Mono</span><span><b>Updated</b> November 2026</span></div>
+  </div>
+</header>
+
+<nav class="toc" aria-label="Sections"><div class="wrap">
+  <a href="#essence">Essence</a><a href="#logo">Logo</a><a href="#usage">Logo use</a><a href="#color">Color</a><a href="#type">Typography</a><a href="#voice">Voice</a><a href="#applications">Applications</a><a href="#files">Files</a>
+</div></nav>
+
+<main>
+<section id="essence"><div class="wrap">
+  <div class="head"><div class="label">Brand essence</div><h2>From chaos to clarity.</h2></div>
+  <p class="statement">Koken Labs puts AI into production for companies that are done talking about it. <span class="dim">The look is edgy. The work underneath is rigorous. Both have to be true on every piece.</span></p>
+  <div class="pillars">
+    <div class="pillar"><span>Belongs to</span><h3>The Koken family</h3><p class="muted">Koken Labs is the AI build arm of the Koken family. Its job in the family is to be the most technical, most modern-looking member.</p></div>
+    <div class="pillar"><span>Feels</span><h3>Edgy, rigorous</h3><p class="muted">Dark ground, one bright gradient signal, monospace labels. It should feel like a lab console, not an agency deck.</p></div>
+    <div class="pillar"><span>Promises</span><h3>Shipped, in weeks</h3><p class="muted">Every visual and every line backs up one claim: working software in production, fast, at a clear price.</p></div>
+  </div>
+</div></section>
+
+<section id="logo"><div class="wrap">
+  <div class="head"><div class="label">Logo</div><h2>The Koken Labs wordmark</h2><p class="muted">Use the supplied files. Never retype the logo in a font, and never rebuild the ō by hand.</p></div>
+  <div class="anatomy"><div class="anatomy-inner">
+    <svg class="logo lg-dark" viewBox="16 44 358 74" role="img" aria-label="Koken Labs"><use href="#kl-logo"/></svg>
+    <div class="callouts">
+      <div><strong>k / ken</strong>Space Grotesk SemiBold (600), lowercase, −2 tracking</div>
+      <div class="o"><strong>The ō</strong>An open ring under a bar, in the Nova gradient. It replaces the o and is the one element that never changes color in the full-color logo.</div>
+      <div><strong>LABS</strong>JetBrains Mono Bold (700), caps, +2 tracking, Nova Violet, sitting just above the baseline</div>
+      <div><strong>Spacing</strong>The ō sits 9 units off each neighbor. Don't tighten or open it up.</div>
+    </div>
+  </div></div>
+  <div class="grid g2" style="margin-top:20px">
+    <figure><div class="tile dark"><svg class="logo lg-dark" viewBox="16 44 358 74" role="img" aria-label="Koken Labs"><use href="#kl-logo"/></svg></div><figcaption class="cap"><b>Primary, on dark</b><span>The default. Use it first.</span></figcaption></figure>
+    <figure><div class="tile light"><svg class="logo lg-light" viewBox="16 44 358 74" role="img" aria-label="Koken Labs"><use href="#kl-logo"/></svg></div><figcaption class="cap"><b>Primary, on light</b><span>LABS shifts to Deep Violet</span></figcaption></figure>
+    <figure><div class="tile dark"><svg class="logo lg-white" viewBox="16 44 358 74" role="img" aria-label="Koken Labs"><use href="#kl-logo"/></svg></div><figcaption class="cap"><b>One color, white</b><span class="tag todo">File to make</span></figcaption></figure>
+    <figure><div class="tile light"><svg class="logo lg-black" viewBox="16 44 358 74" role="img" aria-label="Koken Labs"><use href="#kl-logo"/></svg></div><figcaption class="cap"><b>One color, Obsidian</b><span class="tag todo">File to make</span></figcaption></figure>
+  </div>
+  <p class="muted" style="margin-top:20px">Use the full-color logo whenever the medium can show the gradient. Save the one-color versions for places that can't: embroidery, engraving, single-ink print, fax-quality documents and some partner logo walls.</p>
+</div></section>
+
+<section id="usage"><div class="wrap">
+  <div class="head"><div class="label">Logo use</div><h2>Space, size and the ō mark</h2></div>
+  <div class="grid g2">
+    <div class="col">
+      <h3>Clear space</h3>
+      <p class="muted">Keep empty space around the logo equal to the width of the ō (shown as <b>x</b>). Nothing else goes inside that zone: no text, no edges, no other logos.</p>
+      <div class="whitebox"><div class="clear"><div class="xbox">x</div><svg class="logo lg-light" viewBox="16 44 358 74" role="img" aria-label="Koken Labs"><use href="#kl-logo"/></svg></div></div>
+    </div>
+    <div class="col">
+      <h3>Minimum size</h3>
+      <p class="muted">LABS is the first thing to break when the logo gets small. Below these sizes, switch to the ō mark.</p>
+      <div class="whitebox sizes">
+        <figure><div style="width:160px"><svg class="logo lg-light" viewBox="16 44 358 74" role="img" aria-label="Koken Labs"><use href="#kl-logo"/></svg></div><span>160 px on screen · 1.25 in / 32 mm in print</span></figure>
+        <figure><div style="height:32px"><svg class="mark" viewBox="14 8 72 82" role="img" aria-label="Koken Labs ō mark"><use href="#kl-mark"/></svg></div><span>ō mark: 16 px minimum</span></figure>
+      </div>
+      <p class="muted" style="font-size:13px">Sizes are a starting rule set for v1.0. Check them on a real print proof before a large run.</p>
+    </div>
+  </div>
+
+  <div class="sub"><h3>The ō mark</h3><p class="muted">The ō on its own. Use it for avatars, favicons, app icons, slide corners and anywhere the full name won't fit. On the app icon it sits on an Obsidian rounded square.</p></div>
+  <div class="marks">
+    <figure><div class="tile dark"><svg class="mark" viewBox="14 8 72 82" role="img" aria-label="Koken Labs ō mark"><use href="#kl-mark"/></svg></div><figcaption class="cap"><b>Mark, on dark</b><span>kokenlabs-mark.svg</span></figcaption></figure>
+    <figure><div class="tile light"><svg class="mark" viewBox="14 8 72 82" role="img" aria-label="Koken Labs ō mark"><use href="#kl-mark"/></svg></div><figcaption class="cap"><b>Mark, on light</b><span>kokenlabs-mark.svg</span></figcaption></figure>
+    <figure><div class="tile cloud"><div class="app"><svg class="mark" viewBox="14 8 72 82" role="img" aria-label="Koken Labs app icon"><use href="#kl-mark"/></svg></div></div><figcaption class="cap"><b>App icon</b><span>kokenlabs-monogram.svg</span></figcaption></figure>
+  </div>
+
+  <div class="sub"><h3>Don't</h3></div>
+  <div class="grid g4 dont">
+    <figure><div class="tile dark"><span class="x" aria-hidden="true">×</span><svg class="logo lg-dark d1" viewBox="16 44 358 74" role="img" aria-label="Stretched logo"><use href="#kl-logo"/></svg></div><figcaption class="cap"><b>Stretch or squash it</b></figcaption></figure>
+    <figure><div class="tile dark"><span class="x" aria-hidden="true">×</span><svg class="logo lg-dark d2" viewBox="16 44 358 74" role="img" aria-label="Recolored ō"><use href="#kl-logo"/></svg></div><figcaption class="cap"><b>Recolor the ō</b></figcaption></figure>
+    <figure><div class="tile dark"><span class="x" aria-hidden="true">×</span><svg class="logo lg-dark d3" viewBox="16 44 358 74" role="img" aria-label="Colored letters"><use href="#kl-logo"/></svg></div><figcaption class="cap"><b>Color the letters</b></figcaption></figure>
+    <figure><div class="tile dark"><span class="x" aria-hidden="true">×</span><svg class="logo lg-dark d4" viewBox="16 44 358 74" role="img" aria-label="Logo with effects"><use href="#kl-logo"/></svg></div><figcaption class="cap"><b>Add glows or shadows</b></figcaption></figure>
+  </div>
+  <p class="muted" style="margin-top:20px">Also avoid: putting the full-color logo on the Nova gradient (the ō disappears), dropping or retyping LABS, setting the wordmark in capitals, swapping the ō for a plain o, and placing the logo over busy photos without an Obsidian panel behind it.</p>
+</div></section>
+
+<section id="color"><div class="wrap">
+  <div class="head"><div class="label">Color</div><h2>Obsidian, Nova and Cloud</h2><p class="muted">A dark ground, light text, and one gradient that signals Koken Labs. Nova is the accent: use it on the ō, one headline word, buttons and thin rules, not as a background wash.</p></div>
+  <div class="grid g3">
+    <div class="sw"><div class="chip" style="background:#0A0B0E;color:#F4F6FA">Obsidian</div><div class="info"><b>Obsidian</b><code>HEX #0A0B0E</code><code>RGB 10 11 14</code><code>CMYK 29 21 0 95*</code><span class="note">Primary ground</span><button class="copy" id="c-obsidian" data-hex="#0A0B0E">Copy hex</button></div></div>
+    <div class="sw"><div class="chip" style="background:linear-gradient(120deg,#A24BFF 0%,#FF53B1 100%);color:#0A0B0E">Nova</div><div class="info"><b>Nova gradient</b><code>#A24BFF → #FF53B1 · 120°</code><code>RGB 162 75 255 → 255 83 177</code><code>CMYK 36 71 0 0 → 0 67 31 0*</code><span class="note">The signal. Use it sparingly.</span><button class="copy" id="c-nova" data-hex="linear-gradient(120deg,#A24BFF 0%,#FF53B1 100%)">Copy CSS</button></div></div>
+    <div class="sw"><div class="chip" style="background:#F4F6FA;color:#0A0B0E;border-bottom:1px solid #DDE1E8">Cloud</div><div class="info"><b>Cloud</b><code>HEX #F4F6FA</code><code>RGB 244 246 250</code><code>CMYK 2 2 0 2*</code><span class="note">Text on dark, light ground</span><button class="copy" id="c-cloud" data-hex="#F4F6FA">Copy hex</button></div></div>
+  </div>
+
+  <div class="sub"><h3>Supporting colors</h3><p class="muted">Surfaces, borders, secondary text and the two single-purpose accents.</p></div>
+  <div class="grid g4">
+    <div class="sw"><div class="chip sm" style="background:#14161B;color:#F4F6FA">Carbon</div><div class="info"><b>Carbon</b><code>#14161B</code><span class="note">Cards, alternate sections</span><button class="copy" id="c-carbon" data-hex="#14161B">Copy hex</button></div></div>
+    <div class="sw"><div class="chip sm" style="background:#262A33;color:#F4F6FA">Steel</div><div class="info"><b>Steel</b><code>#262A33</code><span class="note">Borders and dividers on dark</span><button class="copy" id="c-steel" data-hex="#262A33">Copy hex</button></div></div>
+    <div class="sw"><div class="chip sm" style="background:#99A2B2;color:#0A0B0E">Mist</div><div class="info"><b>Mist</b><code>#99A2B2</code><span class="note">Secondary text on dark only</span><button class="copy" id="c-mist" data-hex="#99A2B2">Copy hex</button></div></div>
+    <div class="sw"><div class="chip sm" style="background:#C8FA4B;color:#0A0B0E">Volt</div><div class="info"><b>Volt</b><code>#C8FA4B</code><span class="note">Status dots and "live" signals only. Never on white.</span><button class="copy" id="c-volt" data-hex="#C8FA4B">Copy hex</button></div></div>
+    <div class="sw"><div class="chip sm" style="background:#A24BFF;color:#0A0B0E">Nova Violet</div><div class="info"><b>Nova Violet</b><code>#A24BFF</code><span class="note">Labels and links on dark</span><button class="copy" id="c-violet" data-hex="#A24BFF">Copy hex</button></div></div>
+    <div class="sw"><div class="chip sm" style="background:#FF53B1;color:#0A0B0E">Nova Pink</div><div class="info"><b>Nova Pink</b><code>#FF53B1</code><span class="note">Gradient end, hover glow</span><button class="copy" id="c-pink" data-hex="#FF53B1">Copy hex</button></div></div>
+    <div class="sw"><div class="chip sm" style="background:#9A3DEB;color:#FFFFFF">Deep Violet</div><div class="info"><b>Deep Violet</b><code>#9A3DEB</code><span class="note">Violet text on white (4.9:1)</span><button class="copy" id="c-deep" data-hex="#9A3DEB">Copy hex</button></div></div>
+    <div class="sw"><div class="chip sm" style="background:#5A6170;color:#FFFFFF">Graphite</div><div class="info"><b>Graphite</b><code>#5A6170</code><span class="note">Secondary text on light. New in v1.0.</span><button class="copy" id="c-graphite" data-hex="#5A6170">Copy hex</button></div></div>
+  </div>
+  <p class="muted" style="margin-top:14px;font-size:13px">* CMYK values are straight conversions for reference. Get a printer's proof before any print run: the gradient and Volt both shift on uncoated stock.</p>
+
+  <div class="ratio" aria-label="Color balance">
+    <div style="flex:68;background:#0A0B0E;color:#F4F6FA">Obsidian / Carbon 68%</div>
+    <div style="flex:20;background:#F4F6FA;color:#0A0B0E">Cloud / Mist 20%</div>
+    <div style="flex:10;background:linear-gradient(120deg,#A24BFF,#FF53B1);color:#0A0B0E">Nova 10%</div>
+    <div style="flex:2;background:#C8FA4B" title="Volt 2%"></div>
+  </div>
+  <p class="muted" style="margin-top:8px;font-size:13px">Approximate balance on kokenlabs.ai. Volt is the 2% sliver at the end.</p>
+  <div class="pairs">
+    <div class="pair" style="background:#0A0B0E;color:#F4F6FA;border:1px solid #262A33">Cloud on Obsidian <small>18.2:1 · Good</small></div>
+    <div class="pair" style="background:linear-gradient(120deg,#A24BFF,#FF53B1);color:#0A0B0E">Obsidian on Nova <small>4.7:1 min · Buttons</small></div>
+    <div class="pair" style="background:#0A0B0E;color:#A24BFF;border:1px solid #262A33">Violet on Obsidian <small>4.7:1 · Labels</small></div>
+    <div class="pair" style="background:#FFFFFF;color:#9A3DEB;border:1px solid #DDE1E8">Deep Violet on white <small>4.9:1 · Good</small></div>
+    <div class="pair" style="background:#FFFFFF;color:#99A2B2;border:1px solid #DDE1E8">Mist on white <small>2.6:1 · Don't. Use Graphite.</small></div>
+    <div class="pair" style="background:#FFFFFF;color:#C8FA4B;border:1px solid #DDE1E8">Volt on white <small>1.2:1 · Never</small></div>
+  </div>
+</div></section>
+
+<section id="type"><div class="wrap">
+  <div class="head"><div class="label">Typography</div><h2>Three faces, three jobs</h2><p class="muted">All three are free on Google Fonts. Space Grotesk speaks, Inter explains, JetBrains Mono labels. Don't let one do another's job.</p></div>
+  <div class="faces">
+    <div class="face"><span class="label">Display & headings</span><div class="big" style="font-family:var(--display);font-weight:600;letter-spacing:-.02em">Space Grotesk</div><p class="muted">SemiBold 600. Headlines, buttons, numbers, the wordmark.</p></div>
+    <div class="face"><span class="label">Body</span><div class="big" style="font-family:var(--body);font-weight:500;font-size:40px">Inter</div><p class="muted">Regular 400, Medium 500. Paragraphs, nav, captions.</p></div>
+    <div class="face"><span class="label">Labels & data</span><div class="big" style="font-family:var(--mono);font-weight:500;font-size:34px">JetBrains Mono</div><p class="muted">Medium 500, Bold 700. Eyebrows, tags, status lines, LABS.</p></div>
+  </div>
+  <div class="spec">
+    <div class="row"><div class="lbl"><b>Display</b>Space Grotesk 600 · 44–84 px · −2% · 1.08</div><div style="font-family:var(--display);font-size:clamp(34px,5.5vw,60px);font-weight:600;line-height:1.08;letter-spacing:-.02em">Intelligence, <span class="grad">shipped.</span></div></div>
+    <div class="row"><div class="lbl"><b>Heading</b>Space Grotesk 600 · 30–46 px · −2%</div><div style="font-family:var(--display);font-size:clamp(24px,3.6vw,36px);font-weight:600;line-height:1.12;letter-spacing:-.02em">Most AI work is still a slide deck.</div></div>
+    <div class="row"><div class="lbl"><b>Lede</b>Inter 400 · 17–21 px · Mist / Graphite</div><div class="muted" style="font-size:clamp(17px,2.2vw,21px);line-height:1.55">We pair frontier models with real engineering and ship AI into your stack.</div></div>
+    <div class="row"><div class="lbl"><b>Body</b>Inter 400 · 17 px / 1.65</div><p>Body copy stays in Inter Regular. Keep paragraphs to two or three sentences and lines under about 65 characters, so a buyer can read it on a phone between meetings.</p></div>
+    <div class="row"><div class="lbl"><b>Label</b>JetBrains Mono 500 · 12 px · caps +8%</div><div class="label">02 — What we do</div></div>
+    <div class="row"><div class="lbl"><b>Button</b>Space Grotesk 600 · 15–16 px · pill</div><div><span class="btn">Start a build →</span></div></div>
+  </div>
+  <p class="muted" style="margin-top:20px">Fallbacks when the brand fonts aren't available: Arial or system UI for Space Grotesk and Inter, Menlo or Consolas for JetBrains Mono. Gradient text is for one or two words of a headline at 28 px or larger, never for body copy.</p>
+</div></section>
+
+<section id="voice"><div class="wrap">
+  <div class="head"><div class="label">Voice and tone</div><h2>Builders talking to builders</h2><p class="muted">Koken Labs sounds like a senior engineer who has shipped this before: short sentences, real numbers, and no magic-AI pitch. These four principles come from the site's own "How we think".</p></div>
+  <div class="traits">
+    <div class="trait"><b>Direct over clever</b><div class="bar"><i style="left:20%"></i></div><div class="scale"><span>Direct</span><span>Clever</span></div></div>
+    <div class="trait"><b>Show the work</b><div class="bar"><i style="left:18%"></i></div><div class="scale"><span>Specific</span><span>Adjectives</span></div></div>
+    <div class="trait"><b>Confident, never hype</b><div class="bar"><i style="left:35%"></i></div><div class="scale"><span>Confident</span><span>Loud</span></div></div>
+    <div class="trait"><b>Speak to makers</b><div class="bar"><i style="left:30%"></i></div><div class="scale"><span>Peer</span><span>Vendor</span></div></div>
+  </div>
+  <div class="do-dont">
+    <div class="col"><h3><span class="dot" style="background:#2FA866"></span>Say it like this</h3>
+      <div class="say">"Tell us what you want working in production. We'll tell you how fast we can ship it."<small>Homepage</small></div>
+      <div class="say">"We don't promise revolution. We promise it works, and then we prove it in production."<small>About page</small></div>
+      <div class="say">"Clear price and timeline in about 2 business days."<small>Homepage</small></div>
+    </div>
+    <div class="col"><h3><span class="dot" style="background:#D23A2A"></span>Not like this</h3>
+      <div class="say">"Unlock the transformative power of AI to elevate your business journey."</div>
+      <div class="say">"Koken Labs is thrilled to announce an exciting new partnership…"</div>
+      <div class="say">"🚀 REVOLUTIONARY AI THAT CHANGES EVERYTHING!!!"</div>
+    </div>
+  </div>
+  <p class="muted" style="margin-top:20px">Write the name as two words, both capitalized: <b style="color:var(--fg)">Koken Labs</b>. Not KokenLabs, Koken labs or KOKEN LABS. The lowercase "koken" with the ō appears only inside the logo. The tagline is <b style="color:var(--fg)">From chaos to clarity.</b>, with the period.</p>
+</div></section>
+
+<section id="applications"><div class="wrap">
+  <div class="head"><div class="label">Applications</div><h2>How it comes together</h2><p class="muted">Example layouts. Headlines are lines from the site, and the name on the card is a placeholder.</p></div>
+  <div class="grid g3" style="align-items:start">
+    <div class="mock">
+      <div class="art">
+        <div class="k"><i></i>Status: shipped</div>
+        <div class="t">Weeks to production. <span class="grad">Not quarters.</span></div>
+        <div class="sig"><svg viewBox="14 8 72 82" aria-hidden="true"><use href="#kl-mark"/></svg><span>kokenlabs.ai</span></div>
+      </div>
+      <div class="info"><b>Social post</b>Obsidian ground, Cloud headline, Nova on the payoff words. The ō mark signs it off.</div>
+    </div>
+    <div class="mock">
+      <div class="art og">
+        <svg class="logo lg-light" viewBox="16 44 358 74" role="img" aria-label="Koken Labs"><use href="#kl-logo"/></svg>
+        <div class="t">AI Strategy Sprint: a roadmap and a working proof in two weeks.</div>
+        <div class="k">03 — Services · kokenlabs.ai</div>
+      </div>
+      <div class="info"><b>Link preview / blog cover</b>The light version for feeds that are already dark. Deep Violet LABS, Graphite labels.</div>
+    </div>
+    <div class="mock">
+      <div class="art biz">
+        <svg class="logo lg-dark" viewBox="16 44 358 74" role="img" aria-label="Koken Labs"><use href="#kl-logo"/></svg>
+        <div class="who">Your Name<small>Founder, Koken Labs</small></div>
+        <div class="site">HELLO@KOKENLABS.AI · KOKENLABS.AI</div>
+        <span class="stripe" aria-hidden="true"></span>
+      </div>
+      <div class="info"><b>Business card</b>Carbon ground, primary logo, a thin Nova edge. Plenty of empty space.</div>
+    </div>
+  </div>
+</div></section>
+
+<section id="files"><div class="wrap">
+  <div class="head"><div class="label">Files</div><h2>Logo files</h2><p class="muted">The source files live in the website repo under <b style="color:var(--fg)">assets/</b>. Use SVG wherever you can and PNG where SVG isn't accepted.</p></div>
+  <div class="tablewrap"><table>
+    <thead><tr><th>Asset</th><th>File</th><th>Use on</th><th>Status</th></tr></thead>
+    <tbody>
+      <tr><td>Primary logo, for dark backgrounds</td><td><code>kokenlabs-logo-dark.svg</code></td><td>Obsidian and dark grounds</td><td><span class="tag ok">Ready</span></td></tr>
+      <tr><td>Primary logo, for light backgrounds</td><td><code>kokenlabs-logo-light.svg</code></td><td>White and Cloud grounds</td><td><span class="tag ok">Ready</span></td></tr>
+      <tr><td>ō mark</td><td><code>kokenlabs-mark.svg</code></td><td>Avatars, favicons, small spaces</td><td><span class="tag ok">Ready</span></td></tr>
+      <tr><td>App icon</td><td><code>kokenlabs-monogram.svg</code></td><td>App and social profile icons</td><td><span class="tag ok">Ready</span></td></tr>
+      <tr><td>One-color logo, white and Obsidian</td><td><code>kokenlabs-logo-white.svg / -black.svg</code></td><td>Single-ink print, engraving</td><td><span class="tag todo">To make</span></td></tr>
+      <tr><td>PNG exports and favicon set</td><td><code>.png @1x/@2x, favicon.ico</code></td><td>Email signatures, Canva, decks</td><td><span class="tag todo">To make</span></td></tr>
+    </tbody>
+  </table></div>
+  <div class="callout"><b>Outline the logo text before sharing the files</b><p class="muted">The current SVGs set "k", "ken" and "LABS" as live text that loads Space Grotesk and JetBrains Mono from Google Fonts. That works on the website. In email, Canva, slide decks and at print shops the fonts often don't load, and the logo falls back to a default font. Convert the text to outlines once and ship those files as the masters.</p></div>
+</div></section>
+</main>
+
+<footer><div class="wrap"><svg class="logo lg-adapt" viewBox="16 44 358 74" role="img" aria-label="Koken Labs"><use href="#kl-logo"/></svg><span>Koken Labs brand guidelines · v1.0 · November 2026 · kokenlabs.ai</span></div></footer>
+
+<script>
+document.querySelectorAll('.copy').forEach(function(b){var label=b.textContent;b.addEventListener('click',function(){var h=b.dataset.hex,done=function(){b.textContent='Copied';setTimeout(function(){b.textContent=label},1400)};
+try{navigator.clipboard.writeText(h).then(done,function(){b.textContent=h})}catch(e){b.textContent=h}})});
+</script>
